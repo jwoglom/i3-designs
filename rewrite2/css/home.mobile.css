@@ -1,0 +1,38 @@
+/* Home screen tweaks for mobile browsers */
+/*
+	1140px:
+		* Make left nav smaller
+	850px:
+		* 
+	750px:
+		* compact to one column
+*/
+@media (max-width: 1139px) {
+	.main {
+		left: 150px;
+		background-color: #f0f0f0;
+		width: calc(100% - 150px)
+	}
+
+	.header-logo {
+		width: 135px;
+		margin-left: 0;
+	}
+
+	.header-content {
+		left: 150px;
+	}
+}
+
+@media (max-width: 750px) {
+	.home-left {
+		left: 0;
+		background-color: #f0f0f0;
+		width: 100%;
+	}
+
+	.home-right {
+		visibility: hidden;
+	}
+	
+}

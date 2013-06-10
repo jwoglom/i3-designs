@@ -1,3 +1,9 @@
+.main-home .news {
+	width: 100%;
+	height: 98%;
+	overflow-y: scroll;
+}
+
 .newsposts-container {
 	height: 100%;
 	width: 100%;
@@ -24,6 +30,8 @@ header.newspost > span {
 	font-size: 23px;
 }
 
+
+/*
 header.newspost > cite {
 	position: absolute;
 	right: 0;
@@ -31,6 +39,16 @@ header.newspost > cite {
 	margin-right: 35px;
 	font-size: 12px;
 }
+*/
+
+header.newspost > span > cite {
+	text-align: right;
+	font-size: 12px;
+	margin-top: -15px;
+	margin-right: 35px;
+	margin-left: 50px;
+}
+
 
 header.newspost > span.mark {
 	position: absolute;
@@ -47,7 +65,7 @@ div.newspost-post {
 
 div.newspost-post p {
 	text-indent: 1.5em;
-	width: 98%;
+	padding-right: 25px;
 }
 
 div.newspost-post.open {
@@ -78,4 +96,17 @@ header.newspost:first-child > span.mark > span.d {
 
 header.newspost:first-child  > span.mark > span.u {
 	display: none;
+}
+
+header.newspost.next {
+	border: 0;
+	width: 100%;
+	height: 128px;
+	padding-left: calc(50% - 30px);
+	cursor: pointer;
+}
+
+header.newspost.next span {
+	font-size: 64px;
+	text-align: center;
 }

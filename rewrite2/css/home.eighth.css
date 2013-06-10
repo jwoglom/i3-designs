@@ -27,7 +27,7 @@
 }
 
 .main-home div > label {
-	display: block;
+//	display: block;
 	width: 100%;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .eighth > label {
-	position: fixed;
+//	position: fixed;
 	height: 30px;
 }
 

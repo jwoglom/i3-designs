@@ -1,4 +1,4 @@
-$(document).ready(function() {
+app.addinit(function() {
 	$('span.mark').click(function() {
 
 		id = $(this).parent().attr('id').split('newsposth_')[1];
@@ -18,5 +18,12 @@ $(document).ready(function() {
 			$(this).find('.u').toggle();
 			$c.removeClass('open');
 		}
-	})
+	});
+});
+
+app.addinit(function() {
+	setTimeout(function() {
+		d('scrolling schedule home', 9, 'app.home');
+		$('.schedule-scrollfrom').scrollTo($('.schedule-scrollto'), 50);
+	}, 1)
 });

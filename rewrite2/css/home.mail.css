@@ -4,13 +4,13 @@
 }
 
 .home-left > .mail > label {
-	position: fixed;
+//	position: fixed;
 	height: 30px;
 	background: #f0f0f0;
 }
 
 .home-left > .mail > div {
-	margin-top: 30px;
+
 }
 
 .home-left > .mail > div > table {

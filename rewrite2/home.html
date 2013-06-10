@@ -21,6 +21,7 @@
 <head>
 	<script type='text/javascript' src='js/app.eighth.js'></script>
 	<script type='text/javascript' src='js/app.mail.js'></script>
+	<script type='text/javascript' src='js/app.news.js'></script>
 	<script type='text/javascript' src='js/app.home.js'></script>
 	<script>
 	$('.main-header span').html('Homepage <button onclick="h()" style="float:right">Toggle outline</button>');
@@ -40,6 +41,8 @@
 	@import url('css/home.files.css');
 
 	@import url('css/home.news.css');
+
+	@import url('css/home.mobile.css');
 	</style>
 </head>
 <div class='main-home'>
@@ -62,10 +65,13 @@
 				<span class='nextday'>The next eighth period is: <b>tomorrow</b></span>
 				<br />
 			</label>
-			<div>
+			<div class='schedule-scrollfrom'>
 				<table class='schedule'>
 					<tr class='days'>
-						<th>
+						<th class='hidden more'>
+							<span title='More'>last week</span>
+						</th>
+						<th class='schedule-scrollto'>
 							<span title='January 1, 2013'>tomorrow</span>
 						</th>
 						<th>
@@ -79,6 +85,15 @@
 						</th>
 					</tr>
 					<tr class='infos'>
+						<td>
+							<table>
+								<tr>
+									<td class='day day-more' onclick='eighth.homeNext(false)'>
+										&#8592;
+									</td>
+								</tr>
+							</table>
+						</td>
 						<td>
 							<table>
 								<tr>
@@ -272,9 +287,70 @@
 			</label>
 
 			<div>
-				<script>
+				<div class='newsposts-container'>
+					<header class='newspost' id='newsposth_001'>
+						<span>J-Day!
+							<cite>
+								<span>Andrew Hamilton</span> to <span>all</span>
+							</cite>
+						</span>
+						<span class='mark'>
+							<span class='d'>&#x25BD;</span>
+							<span class='u'>&#x25B3;</span>
+						</span>
+					</header>
+					<div class='newspost-post open' id='newspost_001'>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+						</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+						</p>
+					</div>
+					<header class='newspost' id='newsposth_001'>
+						<span>J-Day!
+							<cite>
+								<span>Andrew Hamilton</span> to <span>all</span>
+							</cite>
+						</span>
+						<span class='mark'>
+							<span class='d'>&#x25BD;</span>
+							<span class='u'>&#x25B3;</span>
+						</span>
+					</header>
+					<div class='newspost-post' id='newspost_001'>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+						</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+						</p>
+					</div>
+					<header class='newspost' id='newsposth_001'>
+						<span>J-Day!
+							<cite>
+								<span>Andrew Hamilton</span> to <span>all</span>
+							</cite>
+						</span>
+						<span class='mark'>
+							<span class='d'>&#x25BD;</span>
+							<span class='u'>&#x25B3;</span>
+						</span>
+					</header>
+					<div class='newspost-post' id='newspost_001'>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+						</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+						</p>
+					</div>
 
-				</script>
+
+					<header class='newspost next'>
+						<span onclick='app.news.homeNext()'>&#8595;</span>
+					</header>
+				</div>
 
 			</div>
 

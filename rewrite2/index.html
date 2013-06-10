@@ -20,6 +20,7 @@
 	<script type='text/javascript' src='js/app.sched.js'></script>
 
 	<script type='text/javascript' src='js/jquery.js'></script>
+	<script type='text/javascript' src='js/jquery.scrollto.js'></script>
 	<script type='text/javascript'>
 	app.addinit(function() {
 		$('.left .left-opt').click(function() {
@@ -116,11 +117,7 @@
 			
 			<div class='main-content'>
 				<script>
-				jQuery.get((u=(s=window.location.search.replace('?',''))!='' ? s+'.html' : 'home.html'), {}, function(d) {
-					$('.main-content').html(d);
-				}).fail(function() {
-					$('.main-content').html(data.strings.errMsg);
-				});
+				app.embedHTML((u=(s=window.location.search.replace('?',''))!='' ? s+'.html' : 'home.html'), '.main-content');
 				</script>
 			</div>
 

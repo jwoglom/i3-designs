@@ -85,7 +85,7 @@ app.initlate = [];
 	function f: the function to add
 */
 app.addinit = function (f) {
-	n = '__' + Math.round(+new Date() + Math.random());
+	n = '__' + Math.round(Math.random() * 1000000);
 	window[n] = f;
 	d('Adding init function '+n+'()', 9, 'app.base');
 	if(!data.initDone) {
@@ -105,6 +105,18 @@ app.addinit = function (f) {
 app.click = function(t, pref) {
 
 };
+
+/*
+	include an external HTML file's contents into 
+	the specified div
+*/
+app.embedHTML = function(u, elm) {
+	jQuery.get(u, {}, function(d) {
+		$(elm).html(d);
+	}).fail(function() {
+		$(elm).html(data.strings.errMsg);
+	});
+}
 
 /*
 	sets the header at $('.main-header')
