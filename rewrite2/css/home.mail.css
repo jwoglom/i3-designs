@@ -1,0 +1,49 @@
+.home-left > .mail {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.home-left > .mail > label {
+	position: fixed;
+	height: 30px;
+	background: #f0f0f0;
+}
+
+.home-left > .mail > div {
+	margin-top: 30px;
+}
+
+.home-left > .mail > div > table {
+	width: 100%;
+	height: 100%;
+}
+.home-left > .mail tr {
+	display: block;
+	width: 100%;
+	height: 32px;
+	border-bottom: 1px solid black;
+	line-height: 15px;
+}
+
+.home-left > .mail td {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.mail span.title {
+	font-size: 14px;
+}
+
+.mail span.author {
+	font-size: 12px;
+	float: right;
+}
+
+.home-left > .mail tr.more {
+	text-align: center;
+	padding-top: 10px;
+	border: 0;
+	font-size: 32px;
+	cursor: pointer;
+}

@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+
+	<title>TJ Intranet</title>
+	<link rel="icon" href="img/icon.png" />
+	<link rel="shortcut icon" href="img/icon.png" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Description" content="The TJ Intranet allows students at the Thomas Jefferson High School for Science and Technology to sign up for activities, access their school files and perform other tasks." />
+	
+	<!-- mobile compatibility -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.25, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<link rel='stylesheet' type='text/css' href='css/base.css' />
+	<script type='text/javascript' src='js/app.base.js'></script>
+	<script type='text/javascript' src='js/app.utils.js'></script>
+
+	<script type='text/javascript' src='js/app.sched.js'></script>
+
+	<script type='text/javascript' src='js/jquery.js'></script>
+	<script type='text/javascript'>
+	app.addinit(function() {
+		$('.left .left-opt').click(function() {
+			id = $(this).attr('class').split('left-opt-')[1].split(' ')[0];
+			window.location.href = '?' + id;
+		});
+	});
+	$(document).ready(app.document_ready);
+	
+	</script>
+	<script type='text/javascript'>
+	/*
+	the global user object
+	stores data about the current user
+	*/
+	user = {
+		'id': '2016jwoglom',
+		'fullname': 'James Woglom',
+		'name': ['Woglom', 'James', 'Bacas'],
+		'grade': 9,
+		'staff': false,
+		'admin': true,
+		'email': 'j@wogloms.net',
+		'groups': ['users', 'class_2016', 'grade_9', 'admins', 'imasters'],
+		'prefs': {
+			'show_debugging': true,
+			'theme': 'default'
+		}
+	};
+</script>
+	<script type='text/javascript'>
+	page = {
+		'root': 'http://127.0.0.1/~james/i3/rewrite1draft2/',
+		'home': [
+		]
+	}
+	</script>
+</head>
+<body class='nooutline nojs'>
+	<div class='container'>
+		<div class='header'>
+			<div class='header-logo'>
+				<span title='DECIDE ON A NAME ALREADY'>intranet<sup onmouseover='this.innerHTML=4' onmouseout='this.innerHTML=3'>3</sup></span>
+			</div>
+			<div class='header-content'>
+				<div class='hi'>
+					<span>Hello, James.</span>
+				</div>
+				<div class='msgs'>
+					<span>(!) You have 5 absences.</span>
+					<span>(!) You have 5 unread emails.</span>
+					<span>(!) Signups close in <b>12 minutes</b>.</span>
+				</div>
+				<div class='tools'>
+					<input type='search' />
+					<div class='right'>
+						<a href=''>Logout</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='left'>
+			<div class='left-opt left-opt-home sel'>
+				<span>home</span>
+				<div>
+					<a href='news/submit'>Submit a newspost</a>
+				</div>
+			</div>
+			<div class='left-opt left-opt-news'>
+				<span>news</span>
+			</div>
+			<div class='left-opt left-opt-eighth'>
+				<span>eighth</span>
+			</div>
+			<div class='left-opt left-opt-polls'>
+				<span>polls</span>
+			</div>
+			<div class='left-opt left-opt-prefs'>
+				<span>prefs</span>
+			</div>
+
+			<div class='left-opt left-opt-admin'>
+				<span>admin</span>
+			</div>
+			
+
+
+		</div>
+
+		<div class='main'>
+			<div class='main-header'>
+				<span><script>document.write(data.strings.loadMsg)</script></span>
+			</div>
+			
+			<div class='main-content'>
+				<script>
+				jQuery.get((u=(s=window.location.search.replace('?',''))!='' ? s+'.html' : 'home.html'), {}, function(d) {
+					$('.main-content').html(d);
+				}).fail(function() {
+					$('.main-content').html(data.strings.errMsg);
+				});
+				</script>
+			</div>
+
+		</div>
+		<style>
+
+		</style>
+		<div class='main-schedule main-home-schedule animate-ease'>
+			<div>
+				<table class='sched-tbl sched-tbl-5'>
+					<tr class='sched-day'>
+						<td>
+							<span class='sched-prev sched-prev1'>←</span>
+							Monday
+							<span class='sched-next sched-next1'>→</span>
+						</td>
+						<td>
+							<span class='sched-prev sched-prev2'>←</span>
+							Tuesday
+							<span class='sched-next sched-next2'>→</span>
+						</td>
+						<td class='sched-today sched-sel'>
+							<span class='sched-prev sched-prev3'>←</span>
+							Wednesday
+							<span class='sched-next sched-next3'>→</span>
+						</td>
+						<td>
+							<span class='sched-prev sched-prev4'>←</span>
+							Thursday
+							<span class='sched-next sched-next4'>→</span>
+						</td>
+						<td>
+							<span class='sched-prev sched-prev5'>←</span>
+							Friday
+							<span class='sched-next sched-next5'>→</span>
+						</td>
+					</tr>
+					<tr class='sched-info'>
+						<td rel='2013-03-27'><div>
+							<b>Anchor Day</b><br>Period 1: 8:30 - 9:15<br>Period 2: 9:25 - 10:05<br>Period 3: 10:15 - 10:55<br>Period 4: 11:05 - 11:45<br>Lunch: 11:45 - 12:35<br>Period 5: 12:35 - 1:15<br>Period 6: 1:25 - 2:05<br>Period 7: 2:15 - 2:55<br>Break: 2:55 - 3:10<br>Period 8: 3:10 - 3:50
+						</div></td>
+						<td><div>
+							<b>Blue Day</b><br>Period 1: 8:30 - 10:05<br>Period 2: 10:15 - 11:45<br>Lunch: 11:45 - 12:30<br>Period 3: 12:30 - 2:05<br>Break: 2:05 - 2:20<br>Period 4: 2:20 - 3:50
+						</div></td>
+						<td class='sched-today sched-sel'><div>
+							<b>Red Day</b><br>Period 5: 8:30 - 10:05<br>Period 6: 10:15 - 11:45<br>Lunch: 11:45 - 12:30<br>Period 7: 12:30 - 2:05<br>Break: 2:05 - 2:20<br>Period 8A: 2:20 - 3:00<br>Period 8B: 3:10 - 3:50
+						</div></td>
+						<td><div>
+							<b>JLC Blue Day</b><br>JLC: 8:00 - 8:55<br>Period 1: 9:00 - 10:28<br>Period 2: 10:37 - 12:05<br>Lunch: 12:05 - 12:45<br>Period 3: 12:45 - 2:13<br>Break: 2:13 - 2:22<br>Period 4: 2:22 - 3:50
+						</div></td>
+						
+						<td><div>
+							<b>Red Day</b><br>Period 5: 8:30 - 10:05<br>Period 6: 10:15 - 11:45<br>Lunch: 11:45 - 12:30<br>Period 7: 12:30 - 2:05<br>Break: 2:05 - 2:20<br>Period 8A: 2:20 - 3:00<br>Period 8B: 3:10 - 3:50
+						</div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

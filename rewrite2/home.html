@@ -1,0 +1,284 @@
+<!--2016jwoglom
+	Design conventions used:
+	CSS:
+		* indent lines with 4 spaces
+		* use 1 space between colon and value
+	HTML:
+		* Use classes with, preferrably, one or two words separated by a -
+		* Don't be unneededly specific and dense
+			don't do this:
+			<div class='main-eighth'>
+				<div class='main-eighth-content'>
+					<span class='main-eighth-text'></span>
+				</div>
+			</div>
+				
+		* Use IDs only for ID numbers and such
+			example:
+			<div class='newspost' id='newspost-1234'></div>
+		* All text should be inside a <span> or <p>, which is inside a <div> or other block element.
+-->
+<head>
+	<script type='text/javascript' src='js/app.eighth.js'></script>
+	<script type='text/javascript' src='js/app.mail.js'></script>
+	<script type='text/javascript' src='js/app.home.js'></script>
+	<script>
+	$('.main-header span').html('Homepage <button onclick="h()" style="float:right">Toggle outline</button>');
+	o = true;
+	h = function() {
+		o = !o;
+		return o ? $('body').removeClass('nooutline') : $('body').addClass('nooutline');
+	}</script>
+	<style type='text/css'>
+	@import url('css/home.base.css');
+
+	@import url('css/home.eighth.css');
+	@import url('css/eighth.card.css');
+
+	@import url('css/home.mail.css');
+
+	@import url('css/home.files.css');
+
+	@import url('css/home.news.css');
+	</style>
+</head>
+<div class='main-home'>
+	<div class='home-left'>
+		<!-- _____________ 
+			|   eighth    |  49%
+			|_____________|
+			                 2% 
+			| mail | file |  49%
+			|______|______| 
+			  49%  2% 49%
+		-->
+		<div class='eighth spot12'>
+			<style>
+
+			</style>
+			<label>
+				<span>eighth</span>
+				&nbsp; 
+				<span class='nextday'>The next eighth period is: <b>tomorrow</b></span>
+				<br />
+			</label>
+			<div>
+				<table class='schedule'>
+					<tr class='days'>
+						<th>
+							<span title='January 1, 2013'>tomorrow</span>
+						</th>
+						<th>
+							<span title='January 3, 2013'>wednesday</span>
+						</th>
+						<th class='hidden'>
+							<span title='January 5, 2013'>friday</span>
+						</th>
+						<th class='hidden more'>
+							<span title='More'>next week</span>
+						</th>
+					</tr>
+					<tr class='infos'>
+						<td>
+							<table>
+								<tr>
+									<td class='day day-01012013A'>
+										<script>$('.day-01012013A').html(eighth.genCard({
+											'block': 'A',
+											'title': 'Sys Op Adminstrators',
+											'sponsor': 'Hamilton',
+											'room': '115',
+											'signedup': 3,
+											'capacity': 15,
+											'day': '01-01-2013',
+											'aid': 'sysop'
+										}))</script>
+									</td>
+								</tr>
+								<tr>
+									<td class='day day-01012013B'>
+										<script>$('.day-01012013B').html(eighth.genCard({
+											'block': 'B',
+											'title': 'Sys Op Adminstrators',
+											'sponsor': 'Hamilton',
+											'room': '115',
+											'signedup': 3,
+											'capacity': 15,
+											'day': '01-01-2013',
+											'aid': 'sysop'
+										}))</script>
+									</td>
+								</tr>
+								
+
+							</table>
+						</td>
+						<td>
+							<table>
+								<tr>
+									<td class='day day-01032013A'>
+										<script>$('.day-01032013A').html(eighth.genCard({
+											'block': 'A',
+											'title': 'Sys Op Adminstrators',
+											'sponsor': 'Hamilton',
+											'room': '115',
+											'signedup': 3,
+											'capacity': 15,
+											'day': '01-01-2013',
+											'aid': 'sysop'
+										}))</script>
+									</td>
+								</tr>
+								<tr>
+									<td class='day day-01032013B'>
+										<script>$('.day-01032013B').html(eighth.genCard({
+											'block': 'B',
+											'day': '01-01-2013',
+											'noact': true
+										}))</script>
+									</td>
+								</tr>
+
+							</table>
+						</td>
+						<td>
+							<table>
+								<tr>
+									<td class='day day-01052013A'>
+										<script>$('.day-01052013A').html(eighth.genCard({
+											'block': 'A',
+											'day': '01-01-2013',
+											'noact': true
+										}))</script>
+									</td>
+								</tr>
+								<tr>
+									<td class='day day-01052013B'>
+										<script>$('.day-01052013B').html(eighth.genCard({
+											'block': 'B',
+											'day': '01-01-2013',
+											'noact': true
+										}))</script>
+									</td>
+							</table>
+						</td>
+						<td>
+							<table>
+								<tr>
+									<td class='day day-more' onclick='eighth.homeNext()'>
+										&#8594;
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class='mail spot3'>
+			<label>
+				<span>mail</span>
+			</label>
+
+			<div>
+				<table class='mails'>
+					<tr><td>
+						<span class='title'>Example Email</span><br />
+						<span class='author'>ahamilto@tjhsst.edu</span>
+					</td></tr>
+					<tr><td>
+						<span class='title'>Example Email</span><br />
+						<span class='author'>ahamilto@tjhsst.edu</span>
+					</td></tr>
+					<tr><td>
+						<span class='title'>Example Email</span><br />
+						<span class='author'>ahamilto@tjhsst.edu</span>
+					</td></tr>
+					<tr><td>
+						<span class='title'>Example Email</span><br />
+						<span class='author'>ahamilto@tjhsst.edu</span>
+					</td></tr>
+					<tr><td>
+						<span class='title'>Example Email</span><br />
+						<span class='author'>ahamilto@tjhsst.edu</span>
+					</td></tr>
+					<tr><td>
+						<span class='title'>Example Email</span><br />
+						<span class='author'>ahamilto@tjhsst.edu</span>
+					</td></tr>
+					<tr><td>
+						<span class='title'>Example Email</span><br />
+						<span class='author'>ahamilto@tjhsst.edu</span>
+					</td></tr>
+					<tr><td>
+						<span class='title'>Example Email</span><br />
+						<span class='author'>ahamilto@tjhsst.edu</span>
+					</td></tr>
+					<tr><td>
+						<span class='title'>Example Email</span><br />
+						<span class='author'>ahamilto@tjhsst.edu</span>
+					</td></tr>
+
+					<tr class='more'><td>
+						<div class='more' onclick='app.mail.homeMore()'>
+							&#8595;
+						</div>
+					</td></tr>
+				</table>
+
+			</div>
+
+		</div>
+
+		<div class='files spot4'>
+			<label>
+				<span>
+					files
+					&nbsp; 
+					<span class='switchtype'>
+						<a href=''><b>windows</b></a> &nbsp; <a href=''>csl</a>
+					</span><br />
+				</span>
+			</label>
+			<div>
+				<!-- AJAX request this so the page loads faster -->
+				<ul>
+					<li class='dir'>2016jwoglom</li>
+					<ul>
+						<li class='dir'>Documents</li>
+						<ul>
+							<li><a href=''>test1.txt</a></li>
+							<li><a href=''>test2.txt</a></li>
+						</ul>
+						<li class='dir'>Downloads</li>
+						<ul>
+							<li><a href=''>test1.txt</a></li>
+							<li><a href=''>test2.txt</a></li>
+						</ul>
+							<li><a href=''>test1.txt</a></li>
+							<li><a href=''>test2.txt</a></li>
+					</ul>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+	<div class='home-right'>
+		<div class='news spot5'>
+			<label>
+				<span>news</span>
+			</label>
+
+			<div>
+				<script>
+
+				</script>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>

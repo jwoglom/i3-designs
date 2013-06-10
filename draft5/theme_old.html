@@ -1,0 +1,553 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>TJ Intranet</title>
+	<script type="text/javascript" src="jquery.js">
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$('.left').hover(function() {
+			if(document.body.clientWidth<741) {
+				$mHl = $('.main').css('left');
+				$('.main').stop().animate({'left':'150px'}, 'fast');
+			}
+		}, function() {
+			if(document.body.clientWidth<741 && typeof $mHl !=='undefined') {
+				$('.main').stop().animate({'left':$mHl}, 'fast');
+			}
+		});
+		
+	});
+	left = {};
+	left.click = function (elm) {
+		$e = $('.leftopt-'+elm);
+		left.clrSel();
+		left.sel($e);
+		$x = $('.lexp-'+elm);
+		if($x.length > 0) {
+			left.exp($e);
+		}
+	};
+	left.clrSel = function() {
+		$('.leftopt-sel, .leftopt-exp')
+			.removeClass('leftopt-sel')
+			.removeClass('leftopt-exp');
+	};
+	left.sel = function ($e) {
+		$e.addClass('leftopt-sel');
+		
+	};
+	left.exp = function (elm) {
+		$e.addClass('leftopt-exp');
+	}
+	</script>
+	<style type="text/css">
+	
+	@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+
+	body {
+		font-family: "Open Sans", Arial, Helvetica, Roboto, "Droid Sans", sans-serif
+	}
+	.container {
+		width: 100%;
+		height: 100%;
+	}
+	.header {
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 10%;
+		background-color: green;
+	}
+	.header-bot {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+	.header-title,
+	.header-tabs {
+		position: absolute;
+		bottom: 0;
+	}
+	.header-tabs {
+		left: 20%;
+	}
+	.header-tabs span {
+		background-color: orange;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.header-tabs span a {
+		color: black;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	.left {
+		position: absolute;
+		top: 10%;
+		left: 0%;
+		width: 20%;
+		height: 90%;
+		background-color: red;
+		border-top: 1px solid #A8A8A8;
+	}
+	.left-container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+	.leftopt {
+		width: 100%;
+		height: 50px;
+		padding-top: 2%;
+		padding-bottom: 2%;
+		background-color: white;
+		color: black;
+	}
+	.leftopt-fixed {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		
+	}
+	.leftopt-sel {
+		background-color: gray;
+		color: white;
+	}
+	.lot {
+		height: 50px;
+		line-height: 50px;
+		text-transform: uppercase;
+		font-size: 20px;
+		padding-left: 10px;
+		cursor: pointer;
+	}
+	.lexp {
+		display: none;
+		font-size: 12px;
+		padding-left: 20px;
+		position: relative;
+	}
+	.leftopt-exp {
+		padding-bottom: 100px;
+		height: 100px;
+	}
+	.leftopt-exp .lexp {
+		display: block;
+	}
+	.main {
+		position: absolute;
+		top: 10%;
+		left: 20%;
+		width: 80%;
+		height: 90%;
+		background-color: orange;
+	}
+	.sched-tbl {
+		table-layout: fixed;
+		width: 100%;
+	}
+	.sched-tbl tr td {
+		width: 20%;
+		text-align: center;
+	}
+	tr.sched-day {
+		border-bottom: 1px solid black;
+		text-transform: uppercase;
+		font-size: 10px;
+	}
+	tr.sched-info,
+	tr.sched-info td {
+		font-size: 12px;
+		text-align: left;
+	}
+	
+	.main-news {
+		position: absolute;
+		top: 20%;
+		width: 70%;
+		border-right: 1px solid black;
+		overflow: hidden;
+		height: 80%;
+	}
+	.main-news-newsposts {
+		overflow-x: hidden;
+		overflow-y: scroll;
+		height: 95%;
+	}
+	.sect-header {
+		font-size: 20px;
+		text-transform: uppercase;
+		border-bottom: 1px solid black;
+	}
+	.mnpost-title {
+		font-size: 14px;
+		text-transform: uppercase;
+		border-bottom: 1px solid black;
+	}
+	.mnpost-author {
+		font-size: 12px;
+		float: right;
+	}
+	.mnpost-content {
+		font-size: 12px;
+	}
+	.main-side {
+		position: absolute;
+		top: 20%;
+		left: 70%;
+	}
+	</style>
+	<style>
+	body {
+		background-color: #F0F0F0;
+	}
+	.header {
+		background-color: #F0F0F0;
+		background: -webkit-linear-gradient(#FFFFFF, #F0F0F0);
+		background: -moz-linear-gradient(#FFFFFF, #F0F0F0);
+		background: -ms-linear-gradient(#FFFFFF, #F0F0F0);
+		background: -o-linear-gradient(#FFFFFF, #F0F0F0);
+		background: linear-gradient(#FFFFFF, #F0F0F0);
+		box-shadow: 0px 0px 8px 8px #F0F0F0;
+	}
+	.header-bot {
+		background-image: url(http://www.tjhsst.edu/~2012zyaro/i3/public/images/themes/light/logo.png);
+		background-repeat: no-repeat;
+		background-position: left bottom;
+		background-position-x: 10px;
+	}
+	.header-title {
+		padding-left: 64px;
+		font-size: 32px;
+	}
+	.header-tabs span {
+		background-color: #F0F0F0;
+		border: 1px solid #656565;
+	}
+	.main {
+		border: thin groove;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		min-height: 80%;
+		padding: 8px 8px 6px;
+		-webkit-transition-duration: 0.2s;
+		-moz-transition-duration: 0.2s;
+		-ms-transition-duration: 0.2s;
+		-o-transition-duration: 0.2s;
+		transition-duration: 0.2s;
+		background-color: #F0F0F0;
+		-webkit-box-shadow: -2px 0px 2px 0px rgba(0,0,0,0.2);
+		-moz-box-shadow: -2px 0px 2px 0px rgba(0,0,0,0.2);
+		box-shadow: -2px 0px 2px 0px rgba(0,0,0,0.2);
+	}
+	.main-side div.main-birthdays,
+	.main-side div.main-links {
+		position: relative;
+		left: 14px;
+	}
+	.left {
+		background-color: transparent;
+	}
+	.leftopt {
+		background-color: #F0F0F0;
+	}
+	.leftopt-sel {
+		background-color: #A8A8A8;
+	}
+	@media (max-width: 1170px) {
+		.left {
+			width: 237px;
+		}
+		.main {
+			isCompacted: true;
+			left: 237px;
+			width: calc(100% - 237px);
+			width: -moz-calc(100% - 237px);
+			width: -webkit-calc(100% - 237px);
+			width: -o-calc(100% - 237px);
+		}
+		.header-tabs {
+			left: 237px;
+		}
+	}
+	@media (max-width: 1010px) {
+		.left {
+			width: 150px;
+		}
+		.main {
+			left: 150px;
+			width: calc(100% - 150px);
+			width: -moz-calc(100% - 150px);
+			width: -webkit-calc(100% - 150px);
+			width: -o-calc(100% - 150px);
+		}
+		.header-title {
+			padding-left: 58px;
+			font-size: 24px;
+		}
+		.header-tabs {
+			left: 150px;
+		}
+		.main-scrollable {
+			position: static;
+			height: 90%;
+			overflow-y: scroll;
+			width: 100%;
+			overflow-x: hidden;
+		}
+		.main-news {
+			position: static;
+			width: 100%;
+		}
+		.main {
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+		.main-side {
+			position: static;
+			left: 0;
+			top: 0;
+		}
+	}
+	@media (max-width: 740px) {
+		.header-title {
+			visibility: hidden;
+		}
+		.header-bot {
+			background-size: 32px 32px;
+		}
+		.header-tabs {
+			left: 60px;
+		}
+		.main {
+			left: 60px;
+			width: calc(100% - 60px);
+			width: -moz-calc(100% - 60px);
+			width: -webkit-calc(100% - 60px);
+			width: -o-calc(100% - 60px);
+		}
+		.lot {
+			padding-left: 0px;
+		}
+	}
+	@media (max-width: 500px) {
+		.header-bot {
+			background-size: 32px 32px;
+			background-position-x: 0px;
+		}
+		.header-tabs {
+			left: 32px;
+		}
+		.main {
+			left: 12px;
+			width: calc(100% - 12px);
+			width: -moz-calc(100% - 12px);
+			width: -webkit-calc(100% - 12px);
+			width: -o-calc(100% - 12px);
+		}
+		.lot {
+			padding-left: 0px;
+		}
+	}
+	
+	table.sched-tbl {
+		border:none;
+		border-collapse: collapse;
+	}
+
+	table.sched-tbl td {
+		border-left: 1px solid black;
+		border-right: 1px solid black;
+	}
+
+	table.sched-tbl td:first-child {
+		border-left: none;
+	}
+
+	table.sched-tbl td:last-child {
+		border-right: none;
+	}
+	tr.sched-info td {
+		position: relative;
+		text-overflow: elipsis;
+		vertical-align: top;
+	}
+	.sched-add {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		font-size: 15px;
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="header">
+		<div class="header-bot">
+			<span class="header-title">
+				Intranet
+			</span>
+			<div class="header-tabs">
+				<span><a href='#' onclick="tabs.switchTab(0)">Welcome</a></span>
+				<span><a href='#' onclick="tabs.switchTab(1)">Schedule</a></span>
+				<span><a href='#' onclick="tabs.switchTab(2)">News</a></span>
+			</div>
+		</div>
+	</div>
+	<div class="left">
+		<div class="left-container">
+			<div class="leftopt leftopt-home leftopt-sel">
+				<div class="lot" onclick="left.click('home')">Home</div>
+			</div>
+			<div class="leftopt leftopt-eighth">
+				<div class="lot" onclick="left.click('eighth')">
+					8<span class='lot-8th'>th</span> Period
+				</div>
+				<div class="lexp lexp-eighth">
+					<span class='lexp-eighth-date'>Today:</span><br />
+					<b>A:</b> No activity selected<br />
+					<b>B:</b> Sys Op Administrators - 115<br />
+					<br />
+					<span class='lexp-eighth-date'>Friday:</span><br />
+					<b>A:</b> Yearbook - 115<br />
+					<b>B:</b> Yearbook - 115<br />
+					<span class='lexp-eighth-more'>view more</span>
+				</div>
+			</div>
+			<div class="leftopt leftopt-mail">
+				<div class="lot">Mail</div>
+			</div>
+			<div class="leftopt leftopt-filecenter">
+				<div class="lot">Filecenter</div>
+			</div>
+			<div class="leftopt leftopt-polls">
+				<div class="lot">Polls</div>
+			</div>
+			<div class="leftopt leftopt-groups">
+				<div class="lot">Groups</div>
+			</div>
+			
+			<div class="leftopt-fixed">
+				<div class="leftopt leftopt-prefs">
+					<div class="lot">Preferences</div>
+				</div>
+				<div class="leftopt leftopt-search">
+					<div class='lot'>
+						<input type='search' value='Search' class='lot lot-search' />
+					</div>
+				</div>
+				<div class="leftopt leftopt-logout">
+					<div class="lot">Logout</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="main-schedule">
+			<table class="sched-tbl">
+				<tr class="sched-day">
+					<td>Monday</td>
+					<td>Tuesday</td>
+					<td class='sched-today'>Wednesday</td>
+					<td>Thursday</td>
+					<td>Friday</td>
+				</tr>
+				<tr class="sched-info">
+					<td rel="2013-03-27">
+						<b>A:</b> No activity selected
+						<span class='sched-add' title='Update my schedule'  onclick="schedule.addToSchedule(2013,03,25)">+</span>
+					</td>
+					<td>
+						
+						<span class='sched-add' title='Update my schedule' onclick="schedule.addToSchedule(2013,03,26)">+</span>
+					</td>
+					<td class='sched-today'>
+						<b>A:</b> No activity selected
+						<br />
+						<b>B:</b> Sys Op Administrators - 115
+						<span class='sched-add' title='Update my schedule' onclick="schedule.addToSchedule(2013,03,27)">+</span>
+					</td>
+					<td>
+						<b>A:</b> Yearbook - 115<br />
+						<b>A:</b> Yearbook - 115
+						<span class='sched-add' title='Update my schedule' onclick="schedule.addToSchedule(2013,03,28)">+</span>
+					</td>
+					
+					<td>
+						<b>A:</b> Yearbook - 115<br />
+						<b>A:</b> Yearbook - 115
+						<span class='sched-add' title='Update my schedule' onclick="schedule.addToSchedule(2013,03,29)">+</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="main-scrollable">
+			<div class="main-news">
+				<div class="sect-header">
+					News
+				</div>
+				<div class="sect-content main-news-newsposts">
+					<div class="main-news-newspost">
+						<div class="mnpost-title">
+							Intranet Maintenance
+							<span class="mnpost-author">
+								Andrew Hamilton
+							</span>
+						</div>
+						<div class="mnpost-content">
+							<p>There will be maintenance on Intranet today Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id purus at tortor semper blandit in et nulla. Phasellus lorem augue, vulputate sit amet mollis sed, molestie sed nibh. Nulla viverra, elit dictum tincidunt posuere, augue mi blandit elit, nec rutrum felis eros at leo. Vivamus molestie tellus sed odio interdum luctus. Nam lacus neque, aliquet at ultrices rhoncus, ullamcorper ac urna. Donec odio nunc, auctor sed consequat ut, auctor eget lorem. Aliquam erat volutpat. Phasellus interdum justo sit amet leo laoreet eleifend.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nunc at neque a urna dapibus hendrerit nec mollis nisl. Donec semper nisl ut mauris lacinia tincidunt. Cras varius sollicitudin gravida. Maecenas rutrum dignissim ultricies. Maecenas sagittis, tortor condimentum tempus dapibus, dolor quam hendrerit quam, nec pellentesque metus sem in risus. Donec posuere ornare velit sit amet dignissim. Curabitur fermentum tincidunt dolor ac aliquam. Nulla facilisi. Praesent porttitor posuere pretium. Nulla nec erat euismod leo fermentum ullamcorper.</p>
+						</div>
+					</div>
+					<div class="main-news-newspost">
+						<div class="mnpost-title">
+							MOAR NEWSPOST
+							<span class="mnpost-author">
+								James Woglom
+							</span>
+						</div>
+						<div class="mnpost-content">
+							<p>
+								Nulla justo lectus, dictum at tempus eu, lacinia quis nisi. Aenean porta mauris non velit sagittis vel ultricies justo pellentesque. Pellentesque posuere metus in justo rhoncus facilisis. Morbi ultrices semper lorem a commodo. Donec pharetra lorem ante, id mollis lacus. Proin luctus blandit felis quis dictum. Donec vel nisi diam, a pellentesque nisl. Donec auctor, elit nec pulvinar mattis, tellus dolor fringilla tellus, nec facilisis quam arcu et est. Integer id magna vel nisi hendrerit vulputate. Pellentesque rhoncus, orci interdum fermentum laoreet, est enim tristique lacus, ut dictum nisl ante sit amet sem. Aliquam molestie, lacus at aliquam scelerisque, elit sapien aliquet est, ut ullamcorper ligula leo at metus. Proin nec tellus nec elit tempus vestibulum sed pretium ipsum.</p>
+
+							<p>Donec sit amet nulla magna. Quisque ultricies euismod ipsum, suscipit cursus sapien dignissim eu. Vivamus lacinia ornare nisi, non commodo massa tempor in. Aenean varius rhoncus enim, in pharetra purus porttitor vel. Proin at justo eget libero scelerisque facilisis at a nunc. Quisque ut consectetur quam. Suspendisse imperdiet, odio quis commodo sagittis, magna mi accumsan leo, pretium rhoncus ante mauris ut tellus. Curabitur ac varius orci. Integer elementum, sem at posuere laoreet, ligula turpis volutpat nibh, eu egestas quam purus a arcu. Ut luctus dictum dui, vel placerat diam fringilla nec. Sed convallis nisi in justo aliquam eu volutpat lectus cursus. In consequat aliquam scelerisque. Integer lacinia, ligula ut ornare condimentum, sem erat faucibus mi, ac venenatis diam nibh vel urna. Donec tincidunt libero at nunc scelerisque et rutrum odio molestie.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-side">
+				<div class="main-birthdays">
+					<div class="sect-header">
+						Birthdays
+					</div>
+					<div class="sect-content">
+						<ul>
+							<li>James Woglom - 15</li>
+							<li>Andrew Hamilton - 23</li>
+							<li>Anna Klaussen - 15</li>
+							<li>Ethan Lowman - 16</li>
+						</ul>
+					</div>
+				</div>
+				<div class="main-links">
+					<div class="sect-header">
+						Links
+					</div>
+					<div class="sect-content">
+						<ul>
+							<li><a href="">TJ Library</a></li>
+							<li><a href="">TJ Databases</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

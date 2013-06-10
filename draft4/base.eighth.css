@@ -1,0 +1,33 @@
+table.sched-tbl.eighthsched-tbl-skip td {
+	border-left: 0px solid #000;
+	border-right: 0px solid #000;
+	font-size: 15px;
+}
+table.sched-tbl.eighthsched-tbl-skip td a {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+table.sched-tbl.eighthsched-tbl tr td {
+	font-size: 14px;
+}
+.sched-eighth-edit,
+.sched-eighth-act-edit,
+.eighth-act-data a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+.sched-eighth-edit {
+	float: right;
+}
+.eighth-act-data {
+	display: none;
+}
+.eighth-act-data a {
+	padding-left: 20px;
+}
+.lexp a {
+	color: white;
+	text-decoration: none;
+}
