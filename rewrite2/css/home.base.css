@@ -1,0 +1,29 @@
+.nooutline, .nooutline *, .nooutline * *, .nooutline * * * { outline: none !important; }
+
+.main-home {
+	position: absolute;
+	top: 60px;
+	left: 15px;
+	width: 100%;
+	width: calc(100% - 15px);
+	height: 100%;
+	height: calc(100% - 60px);
+	outline: 3px solid gray;
+}
+
+.home-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	outline: 3px solid black;
+}
+
+.home-right {
+	position: absolute;
+	top: 0;
+	left: 51%;
+	height: 100%;
+	width: 49%;
+}

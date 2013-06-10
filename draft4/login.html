@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>TJ Intranet</title>
+	<!-- zoom in mobile browsers -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.25, user-scalable=0">
+	<!-- Allows the app to run on iOS without Safari toolbars -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="stylesheet" type="text/css" href="base.css" />
+	<link rel="stylesheet" type="text/css" href="base.eighth.css" />
+	
+	<script type="text/javascript" src="jquery.js"></script>
+	<!--[if !IE]><!-->
+	<script>
+	// bug in hashchange
+	$.browser={'msie':false};
+	</script>
+	<!--<![endif]-->
+	<!--[if IE]>
+	<script>$.browser={'msie': true};</script>
+	<![endif]-->
+	<script type="text/javascript" src="jquery.swipe.js"></script>
+	<script type="text/javascript" src="jquery.hashchange.min.js"></script>
+	<script type="text/javascript" src="base.js"></script>
+	<script type="text/javascript">
+
+page.parseHash = function (h) {
+	h = h || window.location.hash;
+	s = h.split('#');
+	if(h.length<2) {
+		left.click('login');
+	} else {
+		left.click(s[1]);
+	}
+	page.bindSwipes();
+};
+	</script>
+	<script type="text/javascript" src="base.eighth.js"></script>
+	<style type="text/css">
+	body, .container, .container * {
+		overflow-x: hidden;
+	}
+	.header-title {
+		width: 100%;
+		padding-left: 0;
+		text-align: center;
+	}
+	.header-title-force {
+		visibility: visible !important;
+		padding-left: 0 !important;
+	}
+	.main-full {
+		left: 0px !important;
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.main-login {
+		display: block;
+		position: absolute;
+		//left: 20%;
+		//width: 60%;
+		width: 100%;
+		left: 0;
+		height: 40%;
+		overflow-y: visible;
+		border-left: 1px solid rgba(216,216,216,0.1);
+		border-right: 1px solid rgba(216,216,216,0.1);
+		text-align: center;
+		box-shadow: 0 0 16px 16px rgba(216,216,216,0.1);
+		background-color: #F0F0F0;
+		background: linear-gradient(#f0f0f0,#f1f1f1);
+		box-shadow: 0 0 8px 8px #F0F0F0;
+	}
+	.main-login-header {
+		font-size: 24px;
+	}
+	.main-login-status {
+		font-size: 14px;
+	}
+	.main-login-status.err {
+		color: red;
+	}
+	.main-login-tbl-container {
+		width: 250px;
+		margin: 0 auto 0 auto;
+	}
+	.main-login-tbl {
+		width: 100%;
+	}
+	.main-login-tbl tr td label {
+		text-align: right;
+	}
+	.main-login-tbl tr td input {
+		text-align: left;
+	}
+	.main-login-schedule {
+		position: absolute;
+		top: 66%;
+		left: 1%;
+		width: 98%;
+		height: 33% !important;
+		overflow-x: hidden;
+	}
+	tr.sched-info td {
+		text-align: center;
+	}
+	.main-login-reset-reset {
+		display: none;
+	}
+	.main-login-reset[rel=login-reset] div.main-login-reset-reset {
+		display: block;
+	}
+	.main-login-side {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 20%;
+	}
+	.left {
+		z-index: 5;
+	}
+	@media (max-width: 1010px) {
+		.left {
+			display: none;
+		}
+	}
+	@media (max-width: 700px) {
+		.main-login-side {
+			position: absolute;
+			top: 40%;
+			left: 20%;
+			width: 60%;
+		}
+		
+	}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div style="position: absolute;top: 0px;right: 0px;background-color: #88aadd;padding: 5px;font-size: 12px;z-index:99">Design is subject to change.</div>
+	<div class="header">
+		<div class="header-bot">
+			<span class="header-title header-title-force">
+					intranet<sup class="header-title-3">3</sup>
+			</span>
+		</div>
+	</div>
+	<div class="main-schedule main-login-schedule">
+		<table class="sched-tbl sched-tbl-5">
+			<tr class="sched-day">
+				<td>Monday</td>
+				<td>Tuesday</td>
+				<td class='sched-today'>Wednesday</td>
+				<td>Thursday</td>
+				<td>Friday</td>
+			</tr>
+			<tr class="sched-info">
+				<td rel="2013-03-27">
+					<b>Anchor Day:</b><br />Period 1: 8:30 - 9:15<br />Period 2: 9:25 - 10:05<br />Period 3: 10:15 - 10:55<br />Period 4: 11:05 - 11:45<br />Lunch: 11:45 - 12:35<br />Period 5: 12:35 - 1:15<br />Period 6: 1:25 - 2:05<br />Period 7: 2:15 - 2:55<br />Break: 2:55 - 3:10<br />Period 8: 3:10 - 3:50
+				</td>
+				<td>
+					<b>Blue Day:</b><br />Period 1: 8:30 - 10:05<br />Period 2: 10:15 - 11:45<br />Lunch: 11:45 - 12:30<br />Period 3: 12:30 - 2:05<br />Break: 2:05 - 2:20<br />Period 4: 2:20 - 3:50
+				</td>
+				<td class='sched-today'>
+					<b>Red Day:</b><br />Period 5: 8:30 - 10:05<br />Period 6: 10:15 - 11:45<br />Lunch: 11:45 - 12:30<br />Period 7: 12:30 - 2:05<br />Break: 2:05 - 2:20<br />Period 8A: 2:20 - 3:00<br />Period 8B: 3:10 - 3:50
+				</td>
+				<td>
+					<b>JLC Blue Day:</b><br />JLC: 8:00 - 8:55<br />Period 1: 9:00 - 10:28<br />Period 2: 10:37 - 12:05<br />Lunch: 12:05 - 12:45<br />Period 3: 12:45 - 2:13<br />Break: 2:13 - 2:22<br />Period 4: 2:22 - 3:50
+				</td>
+				
+				<td>
+					<b>Red Day:</b><br />Period 5: 8:30 - 10:05<br />Period 6: 10:15 - 11:45<br />Lunch: 11:45 - 12:30<br />Period 7: 12:30 - 2:05<br />Break: 2:05 - 2:20<br />Period 8A: 2:20 - 3:00<br />Period 8B: 3:10 - 3:50
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="left">
+		<div class="left-container">
+			<div class="leftopt leftopt-login leftopt-sel leftopt-sel-login">
+				<div class="lot" onclick="left.click('login')">Login</div>
+			</div>
+		</div>
+	</div>
+	<div class="mainshad"></div>
+	<div class="main main-full">
+		<div class="mainpg main-login main-login-reset" style="display: block;">
+			<div class="main-login-reset-reset">
+				<div class="main-login-header"><span>Reset password</span></div>
+				Please contact XXX to reset your Intranet password.
+				<hr />
+			</div>
+			<div class="main-login-header">
+				<span>Welcome to TJ Intranet</span>
+			</div>
+			<div class="main-login-container">
+				<div class="main-login-status">
+					<span>Enter a username and password to log in. (<a href='#login/reset' onclick="if(window.location.hash.indexOf('reset')!==-1) {window.location='#login';return false}">forgot?</a>)<br /></span>
+				</div>
+				<!--div class="main-login-status err"><span>Do not enter your actual Intranet credentials.</span></div-->
+				<div class="main-login-form">
+					<form action="theme.html" method="post" name="login-form" onsubmit="if(this.username.value=='error') {$('.main-login-status').html('Your login attempt as error failed.<br /> Make sure you typed in your credentials correctly.').toggleClass('err');return false}">
+						<div class="main-login-tbl-container">
+							<table class="main-login-tbl">
+								<tr>
+									<td><label for="username">Username:</label></td>
+									<td><input type="text" name="username" class="login-input" size="25" /></td>
+								</tr>
+								<tr>
+									<td><label for="password">Password:</label></td>
+									<td><input type="password" name="password" class="login-input login-pw" size="25" /></td>
+								</tr>
+								<tr class='login-submit-tr'>
+									<td colspan=2><input type="submit" value="Login" /></td>
+								</tr>
+							</table>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="mainpg main-err" onsel="window.location='?#login'"></div>
+		<div class="main-login-side">
+			<div class="main-links main-login-links">
+				<div class="sect-header">
+					Links
+				</div>
+				<div class="sect-content">
+					<ul>
+						<li><a href="https://www.tjhsst.edu">TJHSST Website</a></li>
+						<li><a href="https://webmail.tjhsst.edu">Webmail</a></li>
+						<li><a href="http://postman.tjhsst.edu">Calendar</a></li>
+						<li>&nbsp;</li>
+					</ul>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+</body>
+</html>

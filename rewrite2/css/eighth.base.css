@@ -1,0 +1,383 @@
+table.sched-tbl.eighthsched-tbl-skip td {
+    border-left: 0px solid #000;
+    border-right: 0px solid #000;
+    font-size: 15px;
+}
+
+table.sched-tbl.eighthsched-tbl-skip td a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+table.sched-tbl.eighthsched-tbl tr td {
+    font-size: 14px;
+}
+
+.sched-eighth-edit,
+.sched-eighth-act-edit,
+.eighth-act-data a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.sched-eighth-edit {
+    float: right;
+}
+
+table.sched-tbl.eighthsched-tbl td.sched-hid,
+td.sched-hid {
+    display: none;
+    border: none;
+}
+
+table.sched-tbl.eighthsched-tbl td.sched-hidA,
+td.sched-hidA {
+    border-left: none;
+}
+
+table.sched-tbl.eighthsched-tbl td.sched-hidB,
+td.sched-hidB {
+    border-right: none;
+}
+
+table.sched-tbl tr.sched-week td.sched-week-this,
+.sched-week-this {
+    font-size: 32px;
+}
+
+table.sched-tbl tr.sched-week td.sched-week-prev,
+.sched-week-prev {
+    text-align: left;
+    vertical-align: bottom;
+}
+
+table.sched-tbl tr.sched-week td.sched-week-next,
+.sched-week-next {
+    text-align: right;
+    vertical-align: bottom;
+}
+
+.eighth-act-tbl.eighth-act-edit-disabled tr td.eighth-act-data {
+    border: none;
+}
+
+.eighth-act-tbl.eighth-act-edit-disabled tr td.eighth-act-edit {
+    display: none;
+}
+
+.eighth-act-tbl.eighth-act-edit-noact tr td.eighth-act-data {
+    display: none;
+}
+
+.eighth-act-tbl.eighth-act-edit-noact tr td.eighth-act-edit {
+    border: none;
+}
+
+.eighth-act-data span,
+.eighth-act-edit span {
+    padding-left: 20px;
+}
+
+table.eighth-act-tbl {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+}
+
+table.sched-tbl.sched-tbl-5 tr td table.eighth-act-tbl tr td,
+table.sched-tbl.sched-tbl-3 tr td table.eighth-act-tbl tr td,
+table.sched-tbl.sched-tbl-1 tr td table.eighth-act-tbl tr td {
+    opacity: 1;
+    width: auto;
+    height: auto;
+    vertical-align: auto;
+}
+
+.lexp a {
+    // 	color: white;
+    text-decoration: none;
+}
+
+.eighthpg {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.main-eighth-schedule {
+    position: absolute;
+    top: 0px;
+    max-height: 250px;
+    //50%;
+	min-height: 250px;
+    overflow-y: scroll;
+    background-color: #f0f0f0;
+    z-index: 9;
+}
+
+.main-eighth-container {
+    position: absolute;
+    top: auto;
+    margin-top: 250px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.main-eighth-container .eighth-schedule-day {
+    margin-bottom: 30px;
+}
+
+.eighth-schedule-container {
+    height: 100%;
+    overflow-y: scroll;
+    font-family: 'Open Sans', Arial, Helvetica, Roboto, 'Droid Sans', sans-serif;
+    font-size: 13px;
+}
+
+.eighth-schedule-tbl {
+    font-size: 13px;
+}
+
+.sched-act {
+    margin-bottom: 3px;
+}
+
+.sched-head {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    opacity: .5;
+    padding: .3em;
+    font-weight: bold;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.sched-act-row {
+	/*border-left: 1px solid rgba(0,0,0,0.5);
+	border-bottom: 1px solid rgba(0,0,0,0.5);*/
+    cursor: pointer;
+    font-size: 15px;
+	/*background-color: #f8f8f8;*/
+    color: rgb(2, 2, 2);
+    display: block;
+    font-family: 'Open Sans', Arial, Helvetica, Roboto, 'Droid Sans', sans-serif;
+    font-size: 13px;
+    height: 18px;
+    padding-bottom: 3px;
+    padding-left: 1px;
+    padding-right: 6px;
+    padding-top: 6px;
+    position: relative;
+}
+
+.sched-act-row.hidden {
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -ms-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    transition-duration: .2s;
+    display: none;
+}
+
+.sched-search-noresults {
+    display: none;
+}
+
+.sched-act-row.cancel {
+    opacity: .5;
+}
+
+.sched-act-title {
+    position: absolute;
+    left: 60px;
+}
+
+.sched-act-tags {
+    float: right;
+    margin-right: 60px;
+}
+
+.sched-act-tags span {
+    padding-left: 30px;
+}
+
+.sched-act-tags .restr {
+    color: red;
+}
+
+.sched-act-tags .cancel {
+    color: red;
+}
+
+div.sched-act-info {
+    display: none;
+    margin-left: 20px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-top: 0;
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    font-size: 13px;
+}
+
+td.eighth-act-info {
+    width: 50%;
+}
+
+.sched-head {
+    cursor: pointer;
+}
+
+.eighth-act-info .status.cancel {
+    color: red;
+    font-weight: bold;
+}
+
+.eighth-act-users:first-child {
+    padding-bottom: 5px;
+}
+
+.eighth-act-groups {
+    padding-left: 20px;
+}
+
+.eighth-act-groups:first-child {
+    padding-top: 5px;
+}
+
+.sched-search {
+    position: fixed;
+    bottom: 0;
+    background-color: #f0f0f0;
+    z-index: 9;
+    width: 100%;
+    height: 30px;
+}
+
+.sched-search-q {
+    width: 100%;
+}
+
+.sched-popup {
+    display: none;
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    // border: 1px solid black;
+    padding: 10px;
+    z-index: 15;
+    background-color: #f0f0f0;
+}
+
+.sched-popup-ok {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 20%;
+    left: 40%;
+    height: 40px;
+    text-align: center;
+}
+
+input.sect-header.sched-search-q {
+    text-transform: none;
+}
+
+.sched-ico {
+    background-image: url(eighth_list_icons.png);
+    display: block;
+    float: left;
+    height: 21px;
+    width: 21px;
+    margin: -3px 0px;
+    margin-right: 3px;
+}
+
+.sched-ico.pie1 {
+    background-position: -189px 0px;
+}
+
+.sched-ico.pie2 {
+    background-position: -168px 0px;
+}
+
+.sched-ico.pie3 {
+    background-position: -147px 0px;
+}
+
+.sched-ico.pie4 {
+    background-position: -126px 0px;
+}
+
+.sched-ico.pie5 {
+    background-position: -105px 0px;
+}
+
+.sched-ico.pie6 {
+    background-position: -84px 0px;
+}
+
+.sched-ico.pie7 {
+    background-position: -63px 0px;
+}
+
+.sched-ico.pie8 {
+    background-position: -42px 0px;
+}
+
+.sched-ico..pie9 {
+    background-position: -21px 0px;
+}
+
+.sched-ico.pie10 {
+    background-position: 0px 0px;
+}
+
+.sched-ico.cancel {
+    background-position: -231px 0px;
+}
+
+.sched-ico.restricted {
+    background-position: -231px 0px;
+}
+
+.sched-ico.fav {
+    background-position: -252px 0px;
+}
+
+.sched-ico.fav.fav-sel {
+    background-position: -273px 0px;
+}
+
+.sched-soico {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+
+td.eighth-act-users {
+    vertical-align: top;
+}
+
+ul.eighth-act-users {
+    list-style-type: none;
+    margin-top: 0;
+}
+
+table.main-eighthlist {
+    width: 100%;
+}

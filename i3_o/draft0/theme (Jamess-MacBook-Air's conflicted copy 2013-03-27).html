@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>TJ Intranet</title>
+	
+	<link rel="stylesheet" type="text/css" href="base.css" />
+	<link rel="stylesheet" type="text/css" href="eighth.css" />
+	
+	<script type="text/javascript" src="jquery.js">
+	</script>
+	<script>
+	// bug in hashchange
+	$.browser={'msie':false};
+	</script>
+	<script type="text/javascript" src="jquery.hashchange.min.js">
+	</script>
+	<script type="text/javascript" src="base.js">
+	
+	</script>
+	
+</head>
+<body>
+<div class="container">
+	<div class="header">
+		<div class="header-bot">
+			<span class="header-title">
+				Intranet
+			</span>
+			<div class="header-tabs">
+				<div class="header-tabs-home">
+					<span><a href='#home/welcome' onclick="tabs.go('home/welcome')">Welcome</a></span>
+					<span><a href='#home/schedule' 	onclick="tabs.go('home/schedule')">Schedule</a></span>
+					<span><a href='#home/news' onclick="tabs.go('home/news')">News</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="left">
+		<div class="left-container">
+			<div class="leftopt leftopt-home leftopt-sel">
+				<div class="lot" onclick="left.click('home')">Home</div>
+			</div>
+			<div class="leftopt leftopt-eighth" rel="height=100px">
+				<div class="lot" onclick="left.click('eighth')">
+					8<span class='lot-8th'>th</span> Period
+				</div>
+				<div class="lexp lexp-eighth">
+					<span class='lexp-eighth-date'>Today:</span><br />
+					<b>A:</b> No activity selected<br />
+					<b>B:</b> Sys Op Administrators - 115<br />
+					<br />
+					<span class='lexp-eighth-date'>Friday:</span><br />
+					<b>A:</b> Yearbook - 115<br />
+					<b>B:</b> Yearbook - 115<br />
+					<span class='lexp-eighth-more'>view more</span>
+				</div>
+			</div>
+			<div class="leftopt leftopt-mail" rel="height=10px">
+				<div class="lot" onclick="left.click('mail')">Mail</div>
+				<div class="lexp lexp-mail">
+					<span class='lexp-mail-msgs'>You have 8 unread messages.</span>
+				</div>
+			</div>
+			<div class="leftopt leftopt-filecenter">
+				<div class="lot" onclick="left.click('filecenter')">Filecenter</div>
+			</div>
+			<div class="leftopt leftopt-polls">
+				<div class="lot" onclick="left.click('polls')">Polls</div>
+			</div>
+			<div class="leftopt leftopt-groups">
+				<div class="lot" onclick="left.click('groups')">Groups</div>
+			</div>
+			
+			<div class="leftopt-fixed">
+				<div class="leftopt leftopt-prefs">
+					<div class="lot" onclick="left.click('prefs')">Prefs</div>
+				</div>
+				<div class="leftopt leftopt-search">
+					<div class='lot' onclick="left.click('search')">
+						<input type='search' value='Search' class='lot lot-search' />
+					</div>
+				</div>
+				<div class="leftopt leftopt-logout">
+					<div class="lot" onclick="left.click('logout');">Logout</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="mainpg main-home main-home-welcome">
+			<div class="main-schedule main-home-schedule">
+				<table class="sched-tbl">
+					<tr class="sched-day">
+						<td>Monday</td>
+						<td>Tuesday</td>
+						<td class='sched-today'>Wednesday</td>
+						<td>Thursday</td>
+						<td>Friday</td>
+					</tr>
+					<tr class="sched-info">
+						<td rel="2013-03-27">
+							<b>A:</b> No activity selected
+							<span class='sched-add' title='Update my schedule'  	onclick="schedule.addToSchedule(2013,03,25)">+</span>
+						</td>
+						<td>
+						
+							<span class='sched-add' title='Update my schedule' onclick="schedule.addToSchedule(2013,03,26)">+</span>
+						</td>
+						<td class='sched-today'>
+							<b>A:</b> No activity selected
+							<br />
+							<b>B:</b> Sys Op Administrators - 115
+							<span class='sched-add' title='Update my schedule' onclick="schedule.addToSchedule(2013,03,27)">+</span>
+						</td>
+						<td>
+							<b>A:</b> Yearbook - 115<br />
+							<b>A:</b> Yearbook - 115
+							<span class='sched-add' title='Update my schedule' onclick="schedule.addToSchedule(2013,03,28)">+</span>
+						</td>
+						
+						<td>
+							<b>A:</b> Yearbook - 115<br />
+							<b>A:</b> Yearbook - 115
+							<span class='sched-add' title='Update my schedule' onclick="schedule.addToSchedule(2013,03,29)">+</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="main-scrollable">
+				<div class="main-news">
+					<div class="sect-header">
+						News
+					</div>
+					<div class="sect-content main-news-newsposts">
+						<div class="main-news-newspost">
+							<div class="mnpost-title">
+								Intranet Maintenance
+								<span class="mnpost-author">
+									Andrew Hamilton
+								</span>
+							</div>
+							<div class="mnpost-content">
+								<p>There will be maintenance on Intranet today Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id purus at tortor semper blandit in et nulla. Phasellus lorem augue, vulputate sit amet mollis sed, molestie sed nibh. Nulla viverra, elit dictum tincidunt posuere, augue mi blandit elit, nec rutrum felis eros at leo. Vivamus molestie tellus sed odio interdum luctus. Nam lacus neque, aliquet at ultrices rhoncus, ullamcorper ac urna. Donec odio nunc, auctor sed consequat ut, auctor eget lorem. Aliquam erat volutpat. Phasellus interdum justo sit amet leo laoreet eleifend.</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nunc at neque a urna dapibus hendrerit nec mollis nisl. Donec semper nisl ut mauris lacinia tincidunt. Cras varius sollicitudin gravida. Maecenas rutrum dignissim ultricies. Maecenas sagittis, tortor condimentum tempus dapibus, dolor quam hendrerit quam, nec pellentesque metus sem in risus. Donec posuere ornare velit sit amet dignissim. Curabitur fermentum tincidunt dolor ac aliquam. Nulla facilisi. Praesent porttitor posuere pretium. Nulla nec erat euismod leo fermentum ullamcorper.</p>
+							</div>
+						</div>
+						<div class="main-news-newspost">
+							<div class="mnpost-title">
+								MOAR NEWSPOST
+								<span class="mnpost-author">
+									James Woglom
+								</span>
+							</div>
+							<div class="mnpost-content">
+								<p>Nulla justo lectus, dictum at tempus eu, lacinia quis nisi. Aenean porta mauris non velit sagittis vel ultricies justo pellentesque. Pellentesque posuere metus in justo rhoncus facilisis. Morbi ultrices semper lorem a commodo. Donec pharetra lorem ante, id mollis lacus. Proin luctus blandit felis quis dictum. Donec vel nisi diam, a pellentesque nisl. Donec auctor, elit nec pulvinar mattis, tellus dolor fringilla tellus, nec facilisis quam arcu et est. Integer id magna vel nisi hendrerit vulputate. Pellentesque rhoncus, orci interdum fermentum laoreet, est enim tristique lacus, ut dictum nisl ante sit amet sem. Aliquam molestie, lacus at aliquam scelerisque, elit sapien aliquet est, ut ullamcorper ligula leo at metus. Proin nec tellus nec elit tempus vestibulum sed pretium ipsum.</p>
+
+								<p>Donec sit amet nulla magna. Quisque ultricies euismod ipsum, suscipit cursus sapien dignissim eu. Vivamus lacinia ornare nisi, non commodo massa tempor in. Aenean varius rhoncus enim, in pharetra purus porttitor vel. Proin at justo eget libero scelerisque facilisis at a nunc. Quisque ut consectetur quam. Suspendisse imperdiet, odio quis commodo sagittis, magna mi accumsan leo, pretium rhoncus ante mauris ut tellus. Curabitur ac varius orci. Integer elementum, sem at posuere laoreet, ligula turpis volutpat nibh, eu egestas quam purus a arcu. Ut luctus dictum dui, vel placerat diam fringilla nec. Sed convallis nisi in justo aliquam eu volutpat lectus cursus. In consequat aliquam scelerisque. Integer lacinia, ligula ut ornare condimentum, sem erat faucibus mi, ac venenatis diam nibh vel urna. Donec tincidunt libero at nunc scelerisque et rutrum odio molestie.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="main-side">
+					<div class="main-birthdays">
+						<div class="sect-header">
+							Birthdays
+						</div>
+						<div class="sect-content">
+							<ul>
+								<li>James Woglom - 15</li>
+								<li>Andrew Hamilton - 23</li>
+								<li>Anna Klaussen - 15</li>
+								<li>Ethan Lowman - 16</li>
+							</ul>
+						</div>
+					</div>
+					<div class="main-links">
+						<div class="sect-header">
+							Links
+						</div>
+						<div class="sect-content">
+							<ul>
+								<li><a href="">TJ Library</a></li>
+								<li><a href="">TJ Databases</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mainpg main-eighth">
+			<div class="main-eighthschedule main-eighth-schedule">
+				<table class="sched-tbl eighthsched-tbl-skip">
+					<tr class="sched-day">
+						<td><a href="#eighth/schedule/week=1" onclick="eighth.click('eighth/schedule/week=1')">Previous week</a></td>
+						<td></td>
+						<td><a href="#eighth/schedule/week=3" onclick="eighth.click('eighth/schedule/week=3')">Next week</a></td>
+					</tr>
+				</table>
+				<table class="sched-tbl eighthsched-tbl">
+					<tr class="sched-day">
+						<td>Monday</td>
+						<td class='sched-today'>Wednesday</td>
+						<td>Friday</td>
+					</tr>
+					<tr class="sched-info">
+						<td rel="2013-03-25">
+							<b>A:</b> No activity selected
+							&nbsp; <a class="sched-eighth-edit" href="#eighth/schedule/day=2013-03-25/block=A/edit" onclick="eighth.click('eighth/schedule/day=2013-03-25/block=A/edit')">(edit)</a>
+						</td>
+						<td class='sched-today' rel="2013-03-27">
+							<b>A:</b> No activity selected
+							&nbsp; <a class="sched-eighth-edit" href="#eighth/schedule/day=2013-03-27/block=A/edit" onclick="eighth.click('eighth/schedule/day=2013-03-27/block=A/edit')">(edit)</a>
+							<br />
+							<b>B:</b> Sys Op Administrators - 115
+							&nbsp; <a class="sched-eighth-edit" href="#eighth/schedule/day=2013-03-27/block=B/edit" onclick="eighth.click('eighth/schedule/day=2013-03-27/block=B/edit')">(edit)</a>
+						</td>
+						
+						<td rel="2013-03-29">
+							<b>A:</b> Yearbook - 115
+							&nbsp; <a class="sched-eighth-edit" href="#eighth/schedule/day=2013-03-29/block=A/edit" onclick="eighth.click('eighth/schedule/day=2013-03-29/block=A/edit')">(edit)</a>
+							<br />
+							<b>A:</b> Yearbook - 115
+							&nbsp; <a class="sched-eighth-edit" href="#eighth/schedule/day=2013-03-29/block=B/edit" onclick="eighth.click('eighth/schedule/day=2013-03-29/block=B/edit')">(edit)</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- This would not be hard coded like this; this is just an example -->
+		<div class="mainpg main-eighth-schedule-day-eq-2013-03-25-block-eq-A-edit main-eighth-schedule-day-eq-2013-03-27-block-eq-A-edit main-eighth-schedule-day-eq-2013-03-27-block-eq-B-edit main-eighth-schedule-day-eq-2013-03-29-block-eq-A-edit main-eighth-schedule-day-eq-2013-03-29-block-eq-B-edit">
+			This would be an eighth period activity selector
+		</div>
+		<div class="mainpg main-err">
+			<div style='font-size: 24px'>Sorry, but the page at '<span class='main-err-url'></span>' couldn't be found.</div>
+			<div style='font-size: 16px'>You may have followed a bad link, typed a URL incorrectly, or Intranet may just be broken.<br />If you are still experiencing problems, please contact the intranetmaster.</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

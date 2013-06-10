@@ -1,0 +1,35 @@
+.main-home .files {
+	
+}
+
+.main-home .files > div {
+	font-size: 12px;
+}
+
+.main-home .files ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+.main-home .files li:before {
+	// content: '\230A'; // &#8970;
+	float: left;
+	margin-left: -12px;
+}
+
+.main-home .files ul:first-child:before {
+	content: '';
+}
+.main-home .files .switchtype {
+	padding-left: 20px;
+	font-size: 12px;
+}
+
+.main-home .files .switchtype a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.main-home .files > div li.dir {
+	font-weight: bold;
+}

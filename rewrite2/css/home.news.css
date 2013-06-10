@@ -1,0 +1,112 @@
+.main-home .news {
+	width: 100%;
+	height: 98%;
+	overflow-y: scroll;
+}
+
+.newsposts-container {
+	height: 100%;
+	width: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+}
+
+header.newspost {
+	display: block;
+	height: 35px;
+	width: 100%;
+	padding-left: 10px;
+	border-bottom: 1px solid black;
+	margin-bottom: 1px;
+}
+
+header.newspost > * {
+	display: table-cell; 
+	vertical-align: middle; 
+}
+
+header.newspost > span {
+	font-size: 23px;
+}
+
+
+/*
+header.newspost > cite {
+	position: absolute;
+	right: 0;
+	margin-top: -15px;
+	margin-right: 35px;
+	font-size: 12px;
+}
+*/
+
+header.newspost > span > cite {
+	text-align: right;
+	font-size: 12px;
+	margin-top: -15px;
+	margin-right: 35px;
+	margin-left: 50px;
+}
+
+
+header.newspost > span.mark {
+	position: absolute;
+	right: 0;
+	margin-top: -39px;
+	font-size: 32px;
+	cursor: pointer;
+}
+
+div.newspost-post {
+	display: none;
+	height: 0;
+}
+
+div.newspost-post p {
+	text-indent: 1.5em;
+	padding-right: 25px;
+}
+
+div.newspost-post.open {
+	display: block;
+	height: 40%;
+	width: 100%;
+	margin-left: 10px;
+	overflow-y: auto;
+	padding: 5px;
+}
+
+
+/*
+* show first newspost expanded
+*/
+
+header.newspost span.d {
+	display: none;
+}
+
+header.newspost span.u {
+	display: inline;
+}
+
+header.newspost:first-child > span.mark > span.d {
+	display: inline;
+}
+
+header.newspost:first-child  > span.mark > span.u {
+	display: none;
+}
+
+header.newspost.next {
+	border: 0;
+	width: 100%;
+	height: 128px;
+	padding-left: calc(50% - 30px);
+	cursor: pointer;
+}
+
+header.newspost.next span {
+	font-size: 64px;
+	text-align: center;
+}

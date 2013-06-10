@@ -1,0 +1,487 @@
+/* base styles and font includes */
+@import url('base.font.css');
+@import url('base.ui.css');
+/* @import url('http://fonts.googleapis.com/css?family=Open+Sans:100italic,400italic,700italic,100,400,700'); */
+
+/* body and container */
+.animate-ease, .animate-ease * {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+body {
+    font-family: "Open Sans", Arial, Helvetica, Roboto, "Droid Sans", sans-serif;
+    background-color: #F0F0F0;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+/* header */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* 235 (elm) + 15 (padding) = 250 */
+    width: 250px;
+    height: 50px;
+    background-color: #F0F0F0;
+    background: linear-gradient(#FFFFFF,#F0F0F0);
+    box-shadow: 0 0 8px 8px #F0F0F0;
+}
+
+.header-logo {
+    position: relative;
+    // background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 50px 55px;
+    height: 50px;
+    /* 235 (elm) + 15 (padding) = 250 */
+    width: 235px;
+    // // padding-left: 60px;
+    // padding-left: 10px;
+    // margin: 5px 0px 0px 5px;
+    padding: 5px 0px 0px 15px;
+    background-color: #c4d5ee 
+}
+.header-logo span {
+    position: absolute;
+    bottom: 0;
+    font-size: 30px;
+}
+
+.header-content {
+    position: fixed;
+    left: 250px;
+    top: 0;
+    /* 40 + 5 + 5 = 50px */
+    height: 40px;
+    width: 90%;
+    width: calc(100% - 250px);
+    //background-color: #aadc88;
+    border-bottom: 2px solid #c4d5ee;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.header-content .hi {
+    position: relative;
+    /* keep these values up to date with the margin of .main */
+    top: -8px;
+    max-width: 150px;
+    height: 50px;
+    // background-color: #88aadd;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    opacity: 0.5;
+}
+
+.header-content .hi span {
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.header-content .msgs {
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    width: 250px;
+    height: 50px;
+    opacity: 0.5;
+}
+
+.header-content .msgs span {
+    display: block;
+    font-size: 12px;
+}
+
+.header-content .tools {
+    position: absolute;
+    top: 0px;
+    left: 450px;
+    width: 60%;
+    width: calc(100% - 450px);
+    height: 50px;
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+.header-content .tools .search {
+
+}
+
+.header-content .tools .right {
+    float: right;
+    margin: 10px 50px 0px 0px;
+}
+
+/* left */
+
+.left {
+    position: fixed;
+    top: 50px; //10%;
+    left: 0;
+    width: 250px;
+    height: 90%;
+    border-top: 1px solid #A8A8A8;
+    background-color: #F0F0F0;
+    //webkit-box-shadow: 0 1px 0 0 rgba(0,0,0,0.2);
+    //-moz-box-shadow: 0 1px 0 0 rgba(0,0,0,0.2);
+    //box-shadow: 0 1px 0 0 rgba(0,0,0,0.2);
+    z-index: 5;
+    margin-bottom: 10px;
+}
+
+.left-opt {
+    width: 100%;
+    height: 50px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: #000;
+    background-color: #F0F0F0;
+}
+
+.left-opt.sel {
+    background-color: #88aadd;
+    font-weight: 600;
+}
+
+.left-opt span {
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.left-opt div {
+    display: none;
+}
+
+/* main */
+
+.main {
+    position: absolute;
+    top: 50px; //10%;
+    left: 250px;
+    width: 80%;
+    width: calc(100% - 250px);
+    height: 90%;
+    /* 100% - 50px (top) - 60px (sched) */
+    height: calc(100% - 110px);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -ms-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    transition-duration: .2s;
+    padding: 8px 8px 6px;
+    z-index: 5;
+
+
+    border-top: 2px solid #c4d5ee;
+}
+
+.main-header {
+    position: relative;
+    /* keep these values up to date with the margin of .main */
+    left: -8px;
+    top: -8px;
+    width: 100%;
+    height: 50px;
+    // background-color: #88aadd;
+    font-size: 20px;
+    font-weight: 600;
+    /* keep this at 6px, coding it exactly is 1px off somehow */
+    padding-bottom: 5px;
+    padding-top: 5px;
+    opacity: 0.5;
+
+}
+
+.main-header span {
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+/* main contents */
+
+.main-contents {
+    display: none;
+}
+
+.main-contents.default {
+    display: block;
+}
+
+/* schedule */
+
+/* schedule table */
+
+.main-schedule {
+    position: fixed;
+    top: 66%;
+    left: 0;
+    width: 98%;
+    padding-left: 1%;
+    padding-right: 1%;
+    height: 34%;
+    overflow-x: hidden;
+}
+
+.main-home-schedule {
+    max-height: 34%;
+    top: auto;
+    bottom: 0;
+    height: 60px;
+    background-color: #f0f0f0;
+    opacity: .9;
+    z-index: 7;
+    border-top: 1px solid black;
+}
+
+.main-schedule>div {
+    position: relative;
+    height: 100%;
+}
+
+.main-schedule table {
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+tr.sched-day {
+    max-height: 20px;
+}
+
+tr.sched-info {
+    border-left: 1px solid black;
+    border-right: 2px solid black;
+}
+
+.sched-info td {
+    height: 100%;
+    max-height: 150px;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.sched-info td div {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.main-schedule.main-schedule-exp {
+    height: 18%;
+    min-height: 100px;
+    border-bottom: 1px solid black;
+    z-index: 6;
+}
+
+.main-schedule.main-schedule-exp.hovered {
+    z-index: 4;
+}
+
+.sched-tbl.sched-tbl-5 tr.sched-info td {
+    width: 15%;
+}
+
+.sched-tbl.sched-tbl-5 tr.sched-info td.sched-sel {
+    width: 20%;
+}
+
+.sched-tbl.sched-tbl-3 tr.sched-info td {
+    width: 30%;
+}
+
+.sched-tbl.sched-tbl-3 tr.sched-info td.sched-sel {
+    width: 40%;
+}
+
+.sched-tbl tr td {
+    display: table-cell;
+}
+.sched-tbl.sched-tbl-3 tr td:first-child,
+.sched-tbl.sched-tbl-3 tr td:last-child,
+.sched-tbl.sched-tbl-3 tr td.sched-hide {
+    width: 0%;
+    display: none;
+}
+
+.sched-tbl.sched-tbl-3 tr td.sched-show,
+.sched-tbl.sched-tbl-3 tr td:first-child.sched-show,
+.sched-tbl.sched-tbl-3 tr td:last-child.sched-show {
+    width: 30%;
+    display: table-cell;
+}
+
+.sched-tbl.sched-tbl-3 tr td:nth-child(2) {
+    border-left: none;
+}
+
+.sched-tbl.sched-tbl-3 tr td:nth-last-child(2) {
+    border-right: none;
+}
+
+.sched-tbl.sched-tbl-1 tr td.sched-sel {
+    display: block;
+    width: 100%;
+    border-left: none;
+    border-right: none;
+}
+.sched-tbl.sched-tbl-1 tr td {
+    display: none;
+    width: 0%;
+}
+
+.sched-tbl {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.sched-tbl tr td {
+    width: 15%;
+    text-align: center;
+}
+
+.sched-tbl tr td.sched-sel {
+    width: 25%;
+}
+
+table tr.sched-day .sched-today:after {
+    content: " (today)";
+}
+
+tr.sched-day {
+    border-bottom: 1px solid #000;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+tr.sched-info, tr.sched-info td {
+    font-size: 12px;
+    // text-align: left;
+}
+
+table.sched-tbl {
+    border: none;
+    border-collapse: collapse;
+    height: 100%;
+}
+
+table.sched-tbl td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+table.sched-tbl td:first-child {
+    border-left: none;
+}
+
+table.sched-tbl td:last-child {
+    border-right: none;
+}
+
+tr.sched-info td {
+    position: relative;
+    text-overflow: elipsis;
+    vertical-align: top;
+    opacity: .7;
+    padding: 5px;
+    font-size: 16px;
+    min-height: 200%;
+}
+
+tr.sched-day {
+    height: 20px;
+    white-space: nowrap;
+}
+
+tr.sched-info td.sched-sel,
+tr.sched-info td.sched-future {
+    opacity: 1;
+}
+
+.sched-prev {
+    float: left;
+    cursor: pointer;
+}
+
+.sched-next {
+    float: right;
+    cursor: pointer;
+}
+
+
+/* news */
+.np-title {
+    border-bottom: 1px solid black;
+    opacity: 0.5;
+}
+
+.np-title span:first-child {
+    font-size: 18px;
+}
+
+.np-title .np-actions {
+    float: right;
+}
+
+.np-title .for {
+    font-size: 12px;
+    padding-left: 25%;
+
+}
+/* misc */
+.c-header {
+    font-size: 20px;
+    padding-bottom: 4px;
+}
+
+.c-upp {
+    text-transform: uppercase;
+}
+
+.c-hop {
+    opacity: .5;
+}
+
+/* static graphics */
+
+.l {
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 4px 4px 4px;
+    background-repeat: no-repeat;
+    display: block;
+    background-size: 32px 32px;
+    background-image: url('../img/load.gif');
+}
+
+.x {
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-image: url('../img/err.png');
+    
+}

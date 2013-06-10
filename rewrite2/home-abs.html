@@ -1,0 +1,328 @@
+<script>
+$('.main-header span').html('Homepage <button onclick="h()" style="float:right">Toggle outline</button>');
+o = true;
+h = function() {
+	o=!o;
+	return o ? $('body').removeClass('nooutline') : $('body').addClass('nooutline');
+}</script>
+<style type='text/css'>
+.nooutline, .nooutline *, .nooutline * *, .nooutline * * * { outline: none !important; }
+.main-home {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	height: calc(100% - 25px);
+	top: 50px;
+	left: 0;
+	outline: 3px solid red;
+	margin: 5px;
+}
+
+.widget-container {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	height: ;
+	top: 0;
+	left: 0;
+	outline: 3px solid green;
+}
+
+.widget-container .widget {
+	position: absolute;
+	width: 33%;
+	outline: 1px solid orange;
+}
+
+.widget div.title {
+	height: 30px;
+}
+
+.widget-spot-00, .widget-spot-01 {
+	margin-left: 3%;
+}
+.widget-spot-00 {
+	top: 0;
+	height: 50%;
+}
+
+.widget-spot-01 {
+	top: 50%;
+}
+
+.widget-spot-10 {
+	top: 0;
+	left: 36%;
+	margin-left: 3%;
+	height: 50%;
+}
+
+
+</style>
+
+<div class='main-contents main-contents-home main-content-home-news default sel' rel='home' data_header='Homepage'>
+	<div class='main-home'>
+		<div class='widget-container'>
+			<style>
+.widget.widget-eighth {
+
+}
+			</style>
+			<div class='widget widget-eighth widget-spot-00'>
+				<div class='title'>
+					<span>Eighth Period</span>
+				</div>
+				<div class='content widget-eighth-content'>
+					<span class='nextday'>The next eighth period is: tomorrow</span><br />
+					<table>
+						<tr>
+							<th>
+								<span class='day'>
+									Tomorrow
+								</span>
+							</th>
+							<th>
+								<span class='block'>A</span>
+							</th>
+							<td>
+								<div class='eighth-card'>
+									<span class='act'>Sys Op Administrators</span>
+									<span class='sponsor'>Hamilton</span>
+									<span class='room'>115</span>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<style>
+
+.widget.widget-news {
+	width: 60%;
+	height: 60%;
+}
+
+.widget-news-content {
+	width: 100%;
+	height: 100%;
+	height: calc(100% - 30px);
+}
+
+.newsposts-container {
+	height: 100%;
+	width: 100%;
+	outline: 3px solid purple;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+}
+
+header.newspost {
+	display: block;
+	height: 35px;
+	width: 100%;
+	outline: 2px solid gray;
+	padding-left: 10px;
+	border: 2px solid black;
+	margin-bottom: 1px;
+}
+
+header.newspost > * {
+	display: table-cell; 
+	vertical-align: middle; 
+}
+
+header.newspost > span {
+	font-size: 23px;
+}
+
+header.newspost > cite {
+	position: absolute;
+	right: 0;
+	margin-top: -15px;
+	margin-right: 35px;
+	font-size: 12px;
+}
+
+header.newspost > span.mark {
+	position: absolute;
+	right: 0;
+	margin-top: -39px;
+	font-size: 32px;
+	cursor: pointer;
+}
+
+div.newspost-post {
+	display: none;
+	height: 0;
+}
+
+div.newspost-post p {
+	text-indent: 1.5em;
+}
+
+div.newspost-post.open {
+	display: block;
+	height: 40%;
+	width: 100%;
+	margin-left: 10px;
+	overflow-y: auto;
+	border-left: 2px solid black;
+	padding: 5px;
+}
+
+
+/*
+* show first newspost expanded
+*/
+
+header.newspost span.d {
+	display: none;
+}
+
+header.newspost span.u {
+	display: inline;
+}
+
+header.newspost:first-child > span.mark > span.d {
+	display: inline;
+}
+
+header.newspost:first-child  > span.mark > span.u {
+	display: none;
+}
+
+
+			</style>
+			<script>
+$(document).ready(function() {
+	$('span.mark').click(function() {
+
+		id = $(this).parent().attr('id').split('newsposth_')[1];
+		$c = $('div#newspost_' + id);
+		// hide other newsposts
+		$('.newsposts-container div.newspost-post').removeClass('open');
+		$('.newspost span.mark .d').hide();
+		$('.newspost span.mark .u').show();
+		// if hidden
+		if($(this).find('.d').css('display') == 'none') {
+			$(this).find('.d').toggle();
+			$(this).find('.u').toggle();
+			$c.addClass('open');
+
+		} else {
+			$(this).find('.d').toggle();
+			$(this).find('.u').toggle();
+			$c.removeClass('open');
+		}
+	})
+});
+			</script>
+			<div class='widget widget-news widget-spot-10'>
+				<div class='title'>
+					<span>News</span>
+				</div>
+				<div class='content widget-news-content'>
+					<div class='newsposts-container'>
+						<header class='newspost' id='newsposth_001'>
+							<span>J-Day!</span>
+							<cite>
+								<span>Andrew Hamilton</span> to <span>all</span>
+							</cite>
+							<span class='mark'>
+								<span class='d'>&#x25BD;</span>
+								<span class='u'>&#x25B3;</span>
+							</span>
+						</header>
+						<div class='newspost-post open' id='newspost_001'>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+							</p>
+						</div>
+
+						<header class='newspost' id='newsposth_002'>
+							<span>J-Day!</span>
+							<cite>
+								<span>Andrew Hamilton</span> to <span>all</span>
+							</cite>
+							<span class='mark'>
+								<span class='d'>&#x25BD;</span>
+								<span class='u'>&#x25B3;</span>
+							</span>
+						</header>
+						<div class='newspost-post' id='newspost_002'>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+							</p>
+						</div>
+
+						<header class='newspost' id='newsposth_003'>
+							<span>J-Day!</span>
+							<cite>
+								<span>Andrew Hamilton</span> to <span>all</span>
+							</cite>
+							<span class='mark'>
+								<span class='d'>&#x25BD;</span>
+								<span class='u'>&#x25B3;</span>
+							</span>
+						</header>
+						<div class='newspost-post' id='newspost_003'>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+							</p>
+						</div>
+
+						<header class='newspost' id='newsposth_004'>
+							<span>J-Day!</span>
+							<cite>
+								<span>Andrew Hamilton</span> to <span>all</span>
+							</cite>
+							<span class='mark'>
+								<span class='d'>&#x25BD;</span>
+								<span class='u'>&#x25B3;</span>
+							</span>
+						</header>
+						<div class='newspost-post' id='newspost_004'>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+							</p>
+						</div>
+
+						<header class='newspost' id='newsposth_005'>
+							<span>J-Day!</span>
+							<cite>
+								<span>Andrew Hamilton</span> to <span>all</span>
+							</cite>
+							<span class='mark'>
+								<span class='d'>&#x25BD;</span>
+								<span class='u'>&#x25B3;</span>
+							</span>
+						</header>
+						<div class='newspost-post' id='newspost_005'>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut sem dui, gravida semper magna. Aliquam erat volutpat. Vivamus arcu massa, blandit et cursus eu, malesuada nec quam. Vestibulum ut quam quam. Cras lobortis posuere tellus nec sollicitudin. Aliquam porta enim a orci tristique facilisis. Cras luctus metus ut purus porta molestie. In imperdiet turpis non tortor elementum ut hendrerit nunc pulvinar. Cras vehicula mattis placerat.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
