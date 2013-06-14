@@ -1,0 +1,238 @@
+<script type='text/javascript' src='js/jquery.js'></script>
+<script>
+alert_open = false;
+alert = function (header, text) {
+	if(typeof header == 'object' && header.jquery) header = $(header).html();
+	if(typeof text == 'object' && text.jquery) text = $(text).html();
+	console.log('ALERT: '+header+'   '+text);
+	$('.popup-overlay').fadeIn(300);
+	setTimeout(function() {
+		$('.popup, .popup-so, .popup-ok').fadeIn(250);
+		$('.popup-so .sect-header').html(header);
+		$('.popup-so .t').html(text);
+		alert_open = true;
+	}, 100);
+};
+
+alert_err = function(header, text) {
+	alert(header, text);
+	$('.popup-ok, .popup-x').hide();
+}
+
+alert_close = function () {
+	$('.popup-overlay').fadeOut(300);
+	setTimeout(function() {
+		$('.popup').fadeOut(250);
+	}, 100);
+	alert_open = false;
+};
+
+confirm = function (header, text) {
+	alert(header, $('.alertcconfirm'));
+	$('.alertconfirmtxt').html(typeof text != 'undefined' ? text : header);
+
+
+}
+
+confirm_close = function () {
+	alert_close();
+}
+
+$(document).keyup(function(e) {
+	/* esc, space, enter */
+  if((e.keyCode == 27 || e.keyCode == 32 || e.keyCode == 13) && alert_open) {
+  	alert_close();
+  }   
+
+});
+
+</script>
+<style>
+@import url('css/base.css');
+
+.sect-header {
+	font-size: 20px;
+	text-transform: uppercase;
+	padding-bottom: 4px;
+	opacity: .5;
+}
+
+.popup .sect-header {
+	border-bottom: 1px solid black;
+}
+
+.popup-overlay {
+	background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 14;
+}
+
+.popup {
+	display: none;
+	position: fixed;
+	top: 15%;
+	left: 25%;
+	width: 50%;
+	height: 70%;
+	overflow: auto;
+	border: 1px solid black;
+	padding: 10px;
+	z-index: 15;
+	background-color: #f0f0f0;
+	overflow: hidden; /*HACK*/
+
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+.popup button {
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.popup .popup-so div.t {
+	opacity: 0.8;
+}
+
+.popup-x {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	z-index: 15;
+	cursor: pointer;
+	font-size: 24px;
+}
+
+.popup-ok {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	width: 20%;
+	left: 40%;
+	height: 40px;
+	text-align: center;
+}
+
+.alertc {
+	display: none;
+	visibility: hidden;
+}
+
+@media (max-width: 1100px) {
+	.popup {
+		left: 10%;
+		width: 80%;
+	}
+}
+</style>
+<div class='popup-overlay'></div>
+<div class='popup'>
+	<span class='popup-x' onclick='alert_close()'>&#10006;</span>
+	<div class='popup-so' style='display:none'>
+		<div class='sect-header'>Activity signup</div>
+		<div class='t'>
+			
+		</div>
+
+	</div>
+	<br />
+	<br />
+	<button onclick='alert_close()' class='popup-ok'>OK</button>
+</div>
+<div class='alertc alertcconfirm'>
+	<style>
+	.alertcconfirm .popup-ok {
+		left: 20%;
+	}
+
+	.alertconfirm .popup-ok.cancel {
+		left: 60%;
+	}
+	</style>
+	<p class='alertconfirmtxt'></p>
+	<button onclick='confirm_close(true)' class='popup-ok'>OK</button>
+
+	<button onclick='confirm_close(true)' class='popup-ok cancel'>Cancel
+	</button>
+</div>
+<div class='alertc alertc1'>
+	<p>This replaces the native javascript alert() method. There are two parameters: header and content strings. A jQuery object may also be passed to either; in this case, the .html() method is used to get the content of the specified element.</p>
+	<code>alert('An error occurred')</code><br />
+	<code>alert('Error', 'An error occurred')</code><br />
+	<code>alert($('.custom-error-text'))</code><br />
+	<code>alert($('.custom-error-header'), $('.custom-error-text'))</code><br />
+</div>
+<div class='alertc alertc2'>
+
+	<script type='text/javascript' src='js/app.eighth.js'></script>
+	<style>
+	@import url('css/eighth.card.css');
+	.eighth-card .more {
+		display: none !important;
+	}
+
+	.eighth-card {
+		width: 200px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10%;
+		margin-bottom: 10%;
+	}
+	</style>
+
+	<p style='color: red'>An error occurred signing up for this activity on <b>Wednesday, January 1, 2013</b>:</p>
+	<span></span>
+	<p><b>The activity is full.</b> Please sign up for another activity.</p>
+	<script>$('.alertc2 span').html(eighth.genCard({
+				'block': 'A',
+				'title': 'Sys Op Adminstrators',
+				'sponsor': 'Hamilton',
+				'room': '115',
+				'signedup': 15,
+				'capacity': 15,
+				'day': '01-01-2013',
+				'aid': 'sysop'
+			}));
+	</script>
+</div>
+
+<div class='alertc alertc3'>
+	<p style='color: red'>Ion has encountered the following error(s):</p>
+	<pre style='width: 100%;height: 60%;overflow: scroll'>
+Warning: ldap_sasl_bind(): Unable to bind to server: Local error
+
+Error number: 2
+
+File: /var/www/iodine/modules/database/LDAP.class.php5:64
+
+
+Full directory access not working...attempting to use generic user because of I2 Exception: Unable to bind to LDAP server!
+
+Backtrace:
+
+/var/www/iodine/modules/database/LDAP.class.php5:165
+
+/var/www/iodine/modules/auth/kerberos.class.php5:93
+
+/var/www/iodine/modules/auth/auth.class.php5:275
+
+/var/www/iodine/modules/database/LDAP.class.php5:158
+
+/var/www/iodine/core.php5:216
+</pre>
+	<p>If this error continues to occur, please contact the Intranet Development Team.</p>
+</div>
+<button onclick="alert('This is a demo of Ion\'s alertbox', $('.alertc1'))">Demo</button><br />
+<button onclick="alert('Ion encountered an error', $('.alertc2'))">Sign up for activity</button><br />
+<button onclick="alert_err('An error occurred', $('.alertc3'))">Show an error</button><br />
+<button onclick="confirm('confirm', 'text')">confirm</button>

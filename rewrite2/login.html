@@ -1,0 +1,301 @@
+<!doctype html>
+<html>
+<head>
+
+	<title>TJ Intranet</title>
+	<link rel="icon" href="img/icon.png" />
+	<link rel="shortcut icon" href="img/icon.png" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Description" content="The TJ Intranet allows students at the Thomas Jefferson High School for Science and Technology to sign up for activities, access their school files and perform other tasks." />
+	
+	<!-- mobile compatibility -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.25, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<link rel='stylesheet' type='text/css' href='css/base.css' />
+	<script type='text/javascript' src='js/app.base.js'></script>
+	<script type='text/javascript' src='js/app.utils.js'></script>
+
+	<script type='text/javascript' src='js/app.sched.js'></script>
+
+	<script type='text/javascript' src='js/jquery.js'></script>
+	<script type='text/javascript' src='js/jquery.scrollto.js'></script>
+	<script type='text/javascript'>
+	app.addinit(function() {
+		$('.left .left-opt').click(function() {
+			id = $(this).attr('class').split('left-opt-')[1].split(' ')[0];
+			window.location.href = '?' + id;
+		});
+	});
+	$(document).ready(app.document_ready);
+	
+	</script>
+	<style type='text/css'>
+	.header-content {
+		border-bottom: 0;
+	}
+
+	.main {
+		border-top: 0;
+	}
+
+	.header, .left {
+	//	left: 50%;
+	//	margin-left: -125px;
+	}
+
+	.header-content {
+		left: 0;
+		width: 100%;
+		background-image: url(img/tjlogo.png);
+		background-repeat: no-repeat;
+		background-position: top center;
+		height: 9%;
+	}
+
+	.main-schedule {
+		height: 34%;
+	}
+
+	@media (max-width: 650px) {
+		.left, .header, .header-logo, .main-login-side {
+			display: none;
+		}
+
+
+	}
+
+	</style>
+</head>
+<body class='nooutline nojs'>
+	<div class='container'>
+		<div class='header'>
+			<div class='header-logo'>
+				<span title='DECIDE ON A NAME ALREADY'>intranet<sup onmouseover='this.innerHTML=4' onmouseout='this.innerHTML=3'>3</sup></span>
+			</div>
+			<div class='header-content'>
+				
+			</div>
+		</div>
+		<div class='left'>
+			<div class='left-opt left-opt-login sel'>
+				<span>login</span>
+			</div>
+		</div>
+
+		<div class='main'>
+			<div class='main-header'>
+				<span></span>
+			</div>
+			
+			<div class='main-content'>
+				<style>
+
+	.main-content {
+		position: fixed;
+		left: 0;
+		top: 10%;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+
+	.main-login-header {
+		font-size: 24px;
+	}
+
+	.main-login-status {
+		font-size: 14px;
+	}
+
+	.main-login-form {
+
+	}
+
+	.main-login-tbl-container {
+		width: 250px;
+		margin: 0 auto 0 auto;
+	}
+
+	.main-login-side {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 20%;
+		text-align: left;
+	}
+
+	.sect-header {
+		font-size: 20px;
+		text-transform: uppercase;
+		padding-bottom: 4px;
+		opacity: .5;
+	}
+	.main-login-side .sect-content {
+		position: relative;
+		top: -15px;
+	}
+
+	.main-login-side ul {
+		padding-left: 16px;
+		list-style-type: none;
+	}
+
+	.main-login-status.hidden {
+		display: none;
+	}
+
+				</style>
+				<script>
+	if(typeof auth == 'undefined') auth = {};
+
+	auth.login_ajax = function() {
+		frm = $('.main-login-form');
+		login_url = 'http://127.0.0.1/~james/i3/rewrite2/login_test.txt';
+		login_data = {
+			'username': frm.find('input[name=username]').attr('value'),
+			'password': frm.find('input[name=password]').attr('value'),
+			'csrf_token': frm.find('input[name=csrf_token]').attr('value'),
+			'returnto': frm.find('input[name=returnto]').attr('value')
+		}
+		inputbad = function(v) {
+			return (v == '' || v == null || v == undefined);
+		};
+		if(!inputbad(login_data.username) && !inputbad(login_data.password)) {
+			$('.main-login-header .l').show();
+			$('input[type=submit]').hide();
+			$.post(login_url, login_data, function(d) {
+				$('.main-login-header .l').hide();
+				console.log('LOGIN RESPONSE: '+d);
+				try {
+					r = JSON.parse(d);
+				} catch(e) {
+					$('.main-login-status span').html(d);
+				}
+
+				$('.main-login-status span').html(r.full_response);
+				if(r.response != 'success') {
+					$('.main-login-status span').prepend('An error occurred: ').css({'color': 'red'});
+					$('input[type=submit]').show();
+				} else {
+					returnto = r.returnto ? r.returnto : (login_data.returnto ? login_data.returnto : '.');
+					setTimeout(function() {
+						window.location.href = returnto;
+					}, 500);
+				}
+			});
+		} else {
+			$('.main-login-status span').css({'color': 'red'});
+		}
+		return false;
+	}
+				</script>
+				<div class='main-login-header'>
+					<span>Welcome to TJ Intranet</span>
+					<span class='l' style='display: none'></span>
+				</div>
+				<div class='main-login-container'>
+					<div class='main-login-status'>
+						<span>Enter a username and password to log in. (<a href='#login/reset' onclick="if(window.location.hash.indexOf('reset')!==-1) {window.location='#login';return false}">forgot?</a>)<br /></span>
+					</div>
+					<div class='main-login-status err hidden'>
+						<span></span>
+					</div>
+					<div class='main-login-form'>
+						<form action='.' method='post' name='login-form' onsubmit='auth.login_ajax(); return false'>
+							<input type='hidden' name='csrf_token' value='DJANGO_MAGIC' />
+							<input type='hidden' name='returnto' />
+							<div class='main-login-tbl-container'>
+								<table class='main-login-tbl'>
+									<tr>
+										<td><label for='username'>Username:</label></td>
+										<td><input disabled value='username' type='text' name='username' class='login-input' size='25' /></td>
+									</tr>
+									<tr>
+										<td><label for='password'>Password:</label></td>
+										<td><input disabled value='password' type='password' name='password' class='login-input login-pw' size='25' /></td>
+									</tr>
+									<tr class='login-submit-tr'>
+										<td colspan=2><input type='submit' value='Login' /></td>
+									</tr>
+								</table>
+							</div>
+						</form>
+					</div>
+
+					<div class='main-login-side'>
+						<div class='main-links main-login-links'>
+							<div class='sect-header'>
+								Links
+							</div>
+							<div class='sect-content'>
+								<ul>
+									<li><a href='https://www.tjhsst.edu'>TJHSST Website</a></li>
+									<li><a href='https://webmail.tjhsst.edu'>Webmail</a></li>
+									<li><a href='http://postman.tjhsst.edu'>Calendar</a></li>
+									<li>&nbsp;</li>
+								</ul>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<style>
+
+		</style>
+		<div class='main-schedule main-home-schedule animate-ease'>
+			<div>
+				<table class='sched-tbl sched-tbl-5'>
+					<tr class='sched-day'>
+						<td>
+							<span class='sched-prev sched-prev1'>←</span>
+							Monday
+							<span class='sched-next sched-next1'>→</span>
+						</td>
+						<td>
+							<span class='sched-prev sched-prev2'>←</span>
+							Tuesday
+							<span class='sched-next sched-next2'>→</span>
+						</td>
+						<td class='sched-today sched-sel'>
+							<span class='sched-prev sched-prev3'>←</span>
+							Wednesday
+							<span class='sched-next sched-next3'>→</span>
+						</td>
+						<td>
+							<span class='sched-prev sched-prev4'>←</span>
+							Thursday
+							<span class='sched-next sched-next4'>→</span>
+						</td>
+						<td>
+							<span class='sched-prev sched-prev5'>←</span>
+							Friday
+							<span class='sched-next sched-next5'>→</span>
+						</td>
+					</tr>
+					<tr class='sched-info'>
+						<td rel='2013-03-27'><div>
+							<b>Anchor Day</b><br>Period 1: 8:30 - 9:15<br>Period 2: 9:25 - 10:05<br>Period 3: 10:15 - 10:55<br>Period 4: 11:05 - 11:45<br>Lunch: 11:45 - 12:35<br>Period 5: 12:35 - 1:15<br>Period 6: 1:25 - 2:05<br>Period 7: 2:15 - 2:55<br>Break: 2:55 - 3:10<br>Period 8: 3:10 - 3:50
+						</div></td>
+						<td><div>
+							<b>Blue Day</b><br>Period 1: 8:30 - 10:05<br>Period 2: 10:15 - 11:45<br>Lunch: 11:45 - 12:30<br>Period 3: 12:30 - 2:05<br>Break: 2:05 - 2:20<br>Period 4: 2:20 - 3:50
+						</div></td>
+						<td class='sched-today sched-sel'><div>
+							<b>Red Day</b><br>Period 5: 8:30 - 10:05<br>Period 6: 10:15 - 11:45<br>Lunch: 11:45 - 12:30<br>Period 7: 12:30 - 2:05<br>Break: 2:05 - 2:20<br>Period 8A: 2:20 - 3:00<br>Period 8B: 3:10 - 3:50
+						</div></td>
+						<td><div>
+							<b>JLC Blue Day</b><br>JLC: 8:00 - 8:55<br>Period 1: 9:00 - 10:28<br>Period 2: 10:37 - 12:05<br>Lunch: 12:05 - 12:45<br>Period 3: 12:45 - 2:13<br>Break: 2:13 - 2:22<br>Period 4: 2:22 - 3:50
+						</div></td>
+						
+						<td><div>
+							<b>Red Day</b><br>Period 5: 8:30 - 10:05<br>Period 6: 10:15 - 11:45<br>Lunch: 11:45 - 12:30<br>Period 7: 12:30 - 2:05<br>Break: 2:05 - 2:20<br>Period 8A: 2:20 - 3:00<br>Period 8B: 3:10 - 3:50
+						</div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

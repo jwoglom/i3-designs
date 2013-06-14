@@ -1,0 +1,8 @@
+{
+	"response": "success",
+	"full_response": "Successfully authenticated with username 2016jwoglom",
+	"status": "authenticated",
+	"userdata": {
+		"userid": "2016jwoglom"
+	}
+}
